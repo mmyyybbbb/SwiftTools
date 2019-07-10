@@ -24,6 +24,8 @@
 		03B2954C22D6335A003D8D6D /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2954B22D6335A003D8D6D /* NumberFormatter.swift */; };
 		03B2954E22D63394003D8D6D /* SortingDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2954D22D63393003D8D6D /* SortingDirection.swift */; };
 		03B2955022D633B6003D8D6D /* ImageResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2954F22D633B6003D8D6D /* ImageResource.swift */; };
+		03B2955922D641FB003D8D6D /* Decimal+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2955822D641FB003D8D6D /* Decimal+.swift */; };
+		03B2955B22D64208003D8D6D /* NSDecimalNumber+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2955A22D64207003D8D6D /* NSDecimalNumber+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		03B2954B22D6335A003D8D6D /* NumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 		03B2954D22D63393003D8D6D /* SortingDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortingDirection.swift; sourceTree = "<group>"; };
 		03B2954F22D633B6003D8D6D /* ImageResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResource.swift; sourceTree = "<group>"; };
+		03B2955822D641FB003D8D6D /* Decimal+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Decimal+.swift"; sourceTree = "<group>"; };
+		03B2955A22D64207003D8D6D /* NSDecimalNumber+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDecimalNumber+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,9 @@
 		03B2953E22D6311D003D8D6D /* Swift+ */ = {
 			isa = PBXGroup;
 			children = (
+				03B2955A22D64207003D8D6D /* NSDecimalNumber+.swift */,
+				03B2954322D632D0003D8D6D /* String+Validation.swift */,
+				03B2955822D641FB003D8D6D /* Decimal+.swift */,
 				03B2954922D63333003D8D6D /* Double+.swift */,
 				03B2954722D632FA003D8D6D /* String+HTML.swift */,
 				03B2954522D632DA003D8D6D /* Dictionary+concat.swift */,
@@ -118,7 +125,6 @@
 		03B2954022D632B2003D8D6D /* Validator */ = {
 			isa = PBXGroup;
 			children = (
-				03B2954322D632D0003D8D6D /* String+Validation.swift */,
 				03B2954122D632B2003D8D6D /* Validator.swift */,
 			);
 			path = Validator;
@@ -211,6 +217,7 @@
 				03B2954822D632FA003D8D6D /* String+HTML.swift in Sources */,
 				03B2954C22D6335A003D8D6D /* NumberFormatter.swift in Sources */,
 				03B2953322D62FC5003D8D6D /* DateFormatterBuilder.swift in Sources */,
+				03B2955B22D64208003D8D6D /* NSDecimalNumber+.swift in Sources */,
 				03B2952F22D62515003D8D6D /* TextCase.swift in Sources */,
 				03B2953D22D630BC003D8D6D /* Character+.swift in Sources */,
 				03B2955022D633B6003D8D6D /* ImageResource.swift in Sources */,
@@ -220,6 +227,7 @@
 				03B2953922D63049003D8D6D /* Optional+String.swift in Sources */,
 				03B2953B22D63067003D8D6D /* String+.swift in Sources */,
 				03B2953122D62F9C003D8D6D /* Date+.swift in Sources */,
+				03B2955922D641FB003D8D6D /* Decimal+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
