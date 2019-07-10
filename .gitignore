@@ -78,3 +78,5 @@ Gemfile.lock
 
 # End of https://www.gitignore.io/api/swift
 MyBroker\.xcodeproj/project\.xcworkspace/xcshareddata/IDEWorkspaceChecks\.plist
+
+*.xcuserstate
