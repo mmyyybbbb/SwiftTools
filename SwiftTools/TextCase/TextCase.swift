@@ -17,6 +17,12 @@ public struct TextCase {
         self.pluralGenetive = pluralGenetive
     }
     
+    public init(_ string: String ) {
+        self.single = string
+        self.pluralGenetive = string
+        self.plural = string
+    }
+    
     public func string(by value: Int) -> String {
         switch "\(self)".last {
         case "1": return single
