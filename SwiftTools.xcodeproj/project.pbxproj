@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03A5720922D8BF1300B182E6 /* Number+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A5720822D8BF1300B182E6 /* Number+.swift */; };
 		03B2952722D624A9003D8D6D /* SwiftTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 03B2952522D624A9003D8D6D /* SwiftTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03B2952F22D62515003D8D6D /* TextCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2952E22D62515003D8D6D /* TextCase.swift */; };
 		03B2953122D62F9C003D8D6D /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2953022D62F9C003D8D6D /* Date+.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03A5720822D8BF1300B182E6 /* Number+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+.swift"; sourceTree = "<group>"; };
 		03B2952222D624A9003D8D6D /* SwiftTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		03B2952522D624A9003D8D6D /* SwiftTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftTools.h; sourceTree = "<group>"; };
 		03B2952622D624A9003D8D6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		03B2953E22D6311D003D8D6D /* Swift+ */ = {
 			isa = PBXGroup;
 			children = (
+				03A5720822D8BF1300B182E6 /* Number+.swift */,
 				03B2955A22D64207003D8D6D /* NSDecimalNumber+.swift */,
 				03B2954322D632D0003D8D6D /* String+Validation.swift */,
 				03B2955822D641FB003D8D6D /* Decimal+.swift */,
@@ -224,6 +227,7 @@
 				03B2953722D62FF5003D8D6D /* Locale+.swift in Sources */,
 				03B2954622D632DA003D8D6D /* Dictionary+concat.swift in Sources */,
 				03B2954E22D63394003D8D6D /* SortingDirection.swift in Sources */,
+				03A5720922D8BF1300B182E6 /* Number+.swift in Sources */,
 				03B2953922D63049003D8D6D /* Optional+String.swift in Sources */,
 				03B2953B22D63067003D8D6D /* String+.swift in Sources */,
 				03B2953122D62F9C003D8D6D /* Date+.swift in Sources */,
