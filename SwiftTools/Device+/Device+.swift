@@ -8,7 +8,7 @@
 
 public extension UIDevice {
     
-    static func installationId() -> String {
+    static var installationId: String {
         let key = "__installationId"
         
         if let id = KeyChainService.load(key: key) {
