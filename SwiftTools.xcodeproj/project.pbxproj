@@ -32,6 +32,7 @@
 		03B2955022D633B6003D8D6D /* ImageResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2954F22D633B6003D8D6D /* ImageResource.swift */; };
 		03B2955922D641FB003D8D6D /* Decimal+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2955822D641FB003D8D6D /* Decimal+.swift */; };
 		03B2955B22D64208003D8D6D /* NSDecimalNumber+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2955A22D64207003D8D6D /* NSDecimalNumber+.swift */; };
+		03C5E18222E5F8090097B397 /* AssociatedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C5E18122E5F8090097B397 /* AssociatedStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		03B2954F22D633B6003D8D6D /* ImageResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResource.swift; sourceTree = "<group>"; };
 		03B2955822D641FB003D8D6D /* Decimal+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Decimal+.swift"; sourceTree = "<group>"; };
 		03B2955A22D64207003D8D6D /* NSDecimalNumber+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDecimalNumber+.swift"; sourceTree = "<group>"; };
+		03C5E18122E5F8090097B397 /* AssociatedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociatedStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				03B2953E22D6311D003D8D6D /* Swift+ */,
 				03B2952522D624A9003D8D6D /* SwiftTools.h */,
 				03B2952622D624A9003D8D6D /* Info.plist */,
+				03C5E18122E5F8090097B397 /* AssociatedStore.swift */,
 			);
 			path = SwiftTools;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			files = (
 				03B2953522D62FEA003D8D6D /* TimeZone+.swift in Sources */,
 				03B2954A22D63333003D8D6D /* Double+.swift in Sources */,
+				03C5E18222E5F8090097B397 /* AssociatedStore.swift in Sources */,
 				03A5737C22E1C59500B182E6 /* ImageLoader.swift in Sources */,
 				03B2954422D632D1003D8D6D /* String+Validation.swift in Sources */,
 				03B2954222D632B2003D8D6D /* Validator.swift in Sources */,
