@@ -131,7 +131,7 @@ public extension Date {
     
     func string(_ format: Formats, timeZone: TimeZone = TimeZone.autoupdatingCurrent) -> String {
         if case .relative = format {
-            return self.relative(with: .day)
+            return self.relative(.day)
         }
         
         return DateFormatterBuilder.dateFormatter(format, timeZone: timeZone).string(from: self)
@@ -256,7 +256,7 @@ public extension Date {
      
      - returns: Строка представления даты.
      */
-    func relative(with accuracy: DateAccuracyType) -> String {
+    func relative(_ accuracy: DateAccuracyType) -> String {
         let type = relativeType()
         
         switch accuracy {
