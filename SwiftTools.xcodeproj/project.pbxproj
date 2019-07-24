@@ -31,7 +31,6 @@
 		03B2954E22D63394003D8D6D /* SortingDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2954D22D63393003D8D6D /* SortingDirection.swift */; };
 		03B2955022D633B6003D8D6D /* ImageResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2954F22D633B6003D8D6D /* ImageResource.swift */; };
 		03B2955922D641FB003D8D6D /* Decimal+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2955822D641FB003D8D6D /* Decimal+.swift */; };
-		03B2955B22D64208003D8D6D /* NSDecimalNumber+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2955A22D64207003D8D6D /* NSDecimalNumber+.swift */; };
 		03C5E18222E5F8090097B397 /* AssociatedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C5E18122E5F8090097B397 /* AssociatedStore.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,7 +64,6 @@
 		03B2954D22D63393003D8D6D /* SortingDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortingDirection.swift; sourceTree = "<group>"; };
 		03B2954F22D633B6003D8D6D /* ImageResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResource.swift; sourceTree = "<group>"; };
 		03B2955822D641FB003D8D6D /* Decimal+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Decimal+.swift"; sourceTree = "<group>"; };
-		03B2955A22D64207003D8D6D /* NSDecimalNumber+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDecimalNumber+.swift"; sourceTree = "<group>"; };
 		03C5E18122E5F8090097B397 /* AssociatedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociatedStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,7 +163,6 @@
 			children = (
 				034F51AD22E1D5AE00AC1A0E /* String+Md5.swift */,
 				03A5720822D8BF1300B182E6 /* Number+.swift */,
-				03B2955A22D64207003D8D6D /* NSDecimalNumber+.swift */,
 				03B2954322D632D0003D8D6D /* String+Validation.swift */,
 				03B2955822D641FB003D8D6D /* Decimal+.swift */,
 				03B2954922D63333003D8D6D /* Double+.swift */,
@@ -286,7 +283,6 @@
 				03B2954822D632FA003D8D6D /* String+HTML.swift in Sources */,
 				03B2954C22D6335A003D8D6D /* NumberFormatter.swift in Sources */,
 				03B2953322D62FC5003D8D6D /* DateFormatterBuilder.swift in Sources */,
-				03B2955B22D64208003D8D6D /* NSDecimalNumber+.swift in Sources */,
 				034F51AE22E1D5AE00AC1A0E /* String+Md5.swift in Sources */,
 				03B2952F22D62515003D8D6D /* TextCase.swift in Sources */,
 				03B2953D22D630BC003D8D6D /* Character+.swift in Sources */,

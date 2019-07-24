@@ -57,12 +57,12 @@ public extension String {
      */
     var clearedFromHTMLTags: String {
         var escapedString = self
-        escapedString = escapedString.removeAll(["<p>"])
-        escapedString = escapedString.replaceAll(["</p>"], withString: "\n")
-        escapedString = escapedString.replaceAll(["<br/>", "<br />"], withString: "\n\n")
-        escapedString = escapedString.removeAll(["<strong>", "</strong>"])
-        escapedString = escapedString.removeAll(["<ul>", "</ul>", "</li>"])
-        escapedString = escapedString.replaceAll(["<li>"], withString: "● ")
+        escapedString = escapedString.remove(["<p>"])
+        escapedString = escapedString.replace(["</p>"], with: "\n")
+        escapedString = escapedString.replace(["<br/>", "<br />"], with: "\n\n")
+        escapedString = escapedString.remove(["<strong>", "</strong>"])
+        escapedString = escapedString.remove(["<ul>", "</ul>", "</li>"])
+        escapedString = escapedString.replace(["<li>"], with: "● ")
 
         escapedString = escapedString.unescaped
 

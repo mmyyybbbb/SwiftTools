@@ -19,4 +19,8 @@ public extension Optional where Wrapped == String {
     var isNullOrEmpty: Bool {
         return self == nil || self!.isEmpty
     }
+    
+    var hasValue: Bool {
+        return isNullOrEmpty == false
+    }
 }
