@@ -34,7 +34,7 @@ public extension String {
 
      - returns: Атрибутная строка.
      */
-    func getAttributedStringFromHTMLString() -> NSAttributedString {
+    var htmlToAttributed: NSAttributedString {
         do {
             guard let data = self.data(using: .utf8, allowLossyConversion: true) else {
                 return NSAttributedString()
@@ -55,7 +55,7 @@ public extension String {
 
      - returns: Преобразованная строка.
      */
-    func cleanSimpleHTML() -> String {
+    var clearedFromHTMLTags: String {
         var escapedString = self
         escapedString = escapedString.removeAll(["<p>"])
         escapedString = escapedString.replaceAll(["</p>"], withString: "\n")
@@ -64,7 +64,7 @@ public extension String {
         escapedString = escapedString.removeAll(["<ul>", "</ul>", "</li>"])
         escapedString = escapedString.replaceAll(["<li>"], withString: "● ")
 
-        escapedString = escapedString.unescapedString()
+        escapedString = escapedString.unescaped
 
         return escapedString
     }
@@ -74,7 +74,7 @@ public extension String {
 
      - returns: Преобразовання строка.
      */
-    func escapedString() -> String {
+    var escaped: String {
         var escapedString = self
 
         for item in HtmlSymbols.allValues {
@@ -89,7 +89,7 @@ public extension String {
 
      - returns: Преобразовання строка.
      */
-    func unescapedString() -> String {
+    var unescaped: String {
         var unescapedString = self
 
         for item in HtmlSymbols.allValues {

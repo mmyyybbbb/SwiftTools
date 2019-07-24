@@ -83,19 +83,10 @@ public extension String {
 
      - returns: Отформатированное значение в виде строки.
      */
-    func convertWithPhonePhormat() -> String {
+    var phoneFormatted:  String {
         return self.convertNumberWith(format: "+7 (***) ***-**-**")
     }
-
-    /**
-     В текущей строке с номером телефона убирает все специальные символы.
-
-     - returns: Очищенная строка.
-     */
-    func convertPhonePhormatToNumbers() -> String {
-        return self.replaceAll(["+", "(", ")", "-", " "], withString: "")
-    }
-
+ 
     /**
      Приводит текущую строку к заданному формату.
 
@@ -401,15 +392,7 @@ public extension String {
 
         return ceil(boundingBox.height)
     }
-
-    /**
-     Удаляет из текущей строки символ + (в номере телефона).
-
-     - returns: Преобразованная строка.
-     */
-    func clearPhone() -> String {
-        return clearOfPunctuation().replacingOccurrences(of: "+", with: "")
-    }
+ 
     // swiftlint:disable all
     var isCorrectPhoneNumberLength: Bool {
         return self.count == 11
