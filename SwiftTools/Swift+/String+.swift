@@ -83,19 +83,10 @@ public extension String {
 
      - returns: Отформатированное значение в виде строки.
      */
-    func convertWithPhonePhormat() -> String {
+    var phoneFormatted:  String {
         return self.convertNumberWith(format: "+7 (***) ***-**-**")
     }
-
-    /**
-     В текущей строке с номером телефона убирает все специальные символы.
-
-     - returns: Очищенная строка.
-     */
-    func convertPhonePhormatToNumbers() -> String {
-        return self.replaceAll(["+", "(", ")", "-", " "], withString: "")
-    }
-
+ 
     /**
      Приводит текущую строку к заданному формату.
 
@@ -173,7 +164,7 @@ public extension String {
 
      - returns: Очищенная строка.
      */
-    func removeAll(_ characters: [Character]) -> String {
+    func remove(_ characters: [Character]) -> String {
         return String(self.filter({ !characters.contains($0) }))
     }
 
@@ -184,7 +175,7 @@ public extension String {
 
      - returns: Очищенная строка.
      */
-    func removeAll(_ subStrings: [String]) -> String {
+    func remove(_ subStrings: [String]) -> String {
         var resultString = self
         _ = subStrings.map { resultString = resultString.replacingOccurrences(of: $0, with: "") }
         return resultString
@@ -197,7 +188,7 @@ public extension String {
 
      - returns: Очищенная строка.
      */
-    func removeAll(_ characters: CharacterSet) -> String {
+    func remove(_ characters: CharacterSet) -> String {
         return components(separatedBy: characters).joined(separator: "")
     }
 
@@ -209,9 +200,9 @@ public extension String {
 
      - returns: Очищенная строка.
      */
-    func replaceAll(_ subStrings: [String], withString: String) -> String {
+    func replace(_ subStrings: [String], with strings: String) -> String {
         var resultString = self
-        _ = subStrings.map { resultString = resultString.replacingOccurrences(of: $0, with: withString) }
+        _ = subStrings.map { resultString = resultString.replacingOccurrences(of: $0, with: strings) }
         return resultString
     }
 
@@ -279,75 +270,11 @@ public extension String {
 
      - returns: Атрибутная строка.
      */
-    func attributed(_ attributes: [NSAttributedString.Key: Any]?) -> NSAttributedString {
+    func attributed(by attributes: [NSAttributedString.Key: Any]?) -> NSAttributedString {
         return NSAttributedString(string: self, attributes: attributes)
     }
 
-    /**
-     Формирует атрибутную строку с заданным набором атрибутов-параметров.
-
-     - parameter font: Шрифт строки.
-     - parameter color: Цвет шрифта.
-     - parameter alignment: Выравнивание текста.
-     - parameter spacing: Межсимвольный интервал.
-     - parameter lineSpacing: Межстрочный интервал.
-     - parameter underlined: Текст подчеркнут или нет.
-     - parameter lineBreakMode: Способ переноса строки.
-     - parameter offset: Офсет.
-
-     - returns: Атрибутная строка.
-     */
-    func attributed(_ font: UIFont, color: UIColor = .black, alignment: NSTextAlignment = .left, spacing: CGFloat? = nil, lineSpacing: CGFloat? = nil, underlined: Bool? = nil, lineBreakMode: NSLineBreakMode? = nil, offset: CGFloat? = nil) -> NSAttributedString {
-        let attributes = String.textAttributes(font, color: color, alignment: alignment, spacing: spacing, lineSpacing: lineSpacing, underlined: underlined, lineBreakMode: lineBreakMode, offset: offset)
-
-        return NSAttributedString(string: self, attributes: attributes)
-    }
-
-    /**
-     Формирует набор параметров для атрибутной строки.
-
-     - parameter font: Шрифт строки.
-     - parameter color: Цвет шрифта.
-     - parameter alignment: Выравнивание текста.
-     - parameter spacing: Межсимвольный интервал.
-     - parameter lineSpacing: Межстрочный интервал.
-     - parameter underlined: Текст подчеркнут или нет.
-     - parameter lineBreakMode: Способ переноса строки.
-     - parameter offset: Офсет.
-
-     - returns: Набор параметров для атрибутной строки.
-     */
-    static func textAttributes(_ font: UIFont, color: UIColor = .black, alignment: NSTextAlignment = .left, spacing: CGFloat? = nil, lineSpacing: CGFloat? = nil, underlined: Bool? = nil, lineBreakMode: NSLineBreakMode? = nil, offset: CGFloat? = nil) -> [NSAttributedString.Key: Any] {
-        var attributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.font: font,
-            NSAttributedString.Key.foregroundColor: color
-        ]
-
-        if let spacing = spacing {
-            attributes[NSAttributedString.Key.kern] = spacing
-        }
-
-        let paragraph = NSMutableParagraphStyle()
-        paragraph.alignment = alignment
-        if let lineSpacing = lineSpacing {
-            paragraph.lineSpacing = lineSpacing
-        }
-        if let lineBreak = lineBreakMode {
-            paragraph.lineBreakMode = lineBreak
-        }
-        attributes[NSAttributedString.Key.paragraphStyle] = paragraph
-
-        if let underlined = underlined {
-            attributes[NSAttributedString.Key.underlineStyle] = underlined
-        }
-
-        if let offset = offset {
-            attributes[NSAttributedString.Key.baselineOffset] = offset
-        }
-
-        return attributes
-    }
-
+ 
     /**
      Заменяет в текущей строке все символы пробелов на символы неразрывного пробела.
 
@@ -384,7 +311,7 @@ public extension String {
         let sizeToFit = CGSize(width: CGFloat.leastNormalMagnitude, height: height)
         let label = UILabel()
         label.numberOfLines = 1
-        label.attributedText = self.attributed(attributes)
+        label.attributedText = self.attributed(by: attributes)
         var size = label.sizeThatFits(sizeToFit)
         size.height = height
         return size
@@ -401,15 +328,7 @@ public extension String {
 
         return ceil(boundingBox.height)
     }
-
-    /**
-     Удаляет из текущей строки символ + (в номере телефона).
-
-     - returns: Преобразованная строка.
-     */
-    func clearPhone() -> String {
-        return clearOfPunctuation().replacingOccurrences(of: "+", with: "")
-    }
+ 
     // swiftlint:disable all
     var isCorrectPhoneNumberLength: Bool {
         return self.count == 11

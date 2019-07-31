@@ -10,6 +10,10 @@ import Foundation
 
 public extension Double {
 
+    var fractionalDigitsCount: Int {
+        return nsDecimal.decimalValue.significantFractionalDecimalDigits
+    }
+    
     /**
      Округляет текущее значение до указанного количества знаков после запятой.
 
