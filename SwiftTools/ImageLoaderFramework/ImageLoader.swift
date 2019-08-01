@@ -26,7 +26,6 @@ public class ImageLoader {
             completion(image)
             return
         }
-        completion(nil)
         DispatchQueue.global().async {
             do {
                 let data = try Data(contentsOf: url)
