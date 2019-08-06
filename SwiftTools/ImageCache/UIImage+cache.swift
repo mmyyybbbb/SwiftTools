@@ -29,15 +29,15 @@ public extension UIImage {
                     
                     try data.write(to: fileUrl, options: .atomic)
                     
-                    print("trySaveToFile SUCCESS fileUrl", fileUrl)
+                    debugPrint("trySaveToFile SUCCESS fileUrl", fileUrl)
                 } catch {
-                    print(error)
+                    debugPrint(error)
                 }
             }
         }
     }
     
-    func loadFromDirectory(dirName: String, extension: String = "", completion: @escaping ImageCacheLoadCompletion) {
+    static func loadFromDirectory(dirName: String, extension: String = "", completion: @escaping ImageCacheLoadCompletion) {
         DispatchQueue.global().async {
             
             var dict: [String: UIImage] = [:]
@@ -55,12 +55,12 @@ public extension UIImage {
 
                 DispatchQueue.main.async {
                     
-                    print("loadFromDirectory count", dict.count)
+                    debugPrint("loadFromDirectory count", dict.count)
                     completion(dict)
                 }
                 
             } catch {
-                print(error)
+                debugPrint(error)
             }
         }
     }
