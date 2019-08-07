@@ -24,9 +24,9 @@ public struct TextCase {
     }
     
     public func string(by value: Int) -> String {
-        switch "\(self)".last {
-        case "1": return single
-        case "2", "3", "4": return pluralGenetive
+        switch value % 10 {
+        case 1: return single
+        case 2, 3, 4: return pluralGenetive
         default: return plural
         }
     }
