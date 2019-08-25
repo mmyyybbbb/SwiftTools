@@ -47,10 +47,8 @@ public extension String {
         case inn = "************"
         case snils = "***-***-*** **"
         case subdivision = "***-***"
-        case password = "**** ******"
         case date = "**.**.****"
-        case passportSeriesNumber = "** ** ******"
-        case money = "******" // 999 тыщ
+        case passportSeriesNumber = "**** ******"
 
         public var placeholderValue: String {
             switch self {
