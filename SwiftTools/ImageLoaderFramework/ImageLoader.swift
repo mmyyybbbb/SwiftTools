@@ -41,5 +41,11 @@ public class ImageLoader {
                 debugPrint("ImageLoader error! \(url.absoluteString) - is not image url")
             }
         }
+        
+        UIImage.loadFromDirectory(dirName: "T##String") { dict in
+            
+            
+        }
+        
     }
 }

@@ -76,10 +76,24 @@ public extension Date {
     }
     
     /**
+     Неделя назад.
+     */
+    static var weekAgo: Date {
+        return today.dateByAdding(.day, value: -7) ?? today
+    }
+    
+    /**
      Месяц назад.
      */
     static var monthAgo: Date {
-        return today.dateByAdding(.day, value: -30) ?? today
+        return today.dateByAdding(.month, value: -1) ?? today
+    }
+    
+    /**
+     Год назад.
+     */
+    static var yearAgo: Date {
+        return today.dateByAdding(.year, value: -1) ?? today
     }
     
     /**
