@@ -43,7 +43,7 @@ public extension String {
     }
 
     func isValidPassportSeriesAndNumber() -> Bool {
-        let regEx = "[0-9]{2}+ [0-9]{2}+ [0-9]{6}"
+        let regEx = "[0-9]{4}+ [0-9]{6}"
         let regExTest = NSPredicate(format: "SELF MATCHES %@", regEx)
         return regExTest.evaluate(with: self)
     }
