@@ -6,7 +6,7 @@
 //  Copyright © 2018 BCS. All rights reserved.
 //
 
-public struct TextCase {
+public struct TextCase: Codable {
     public let single: String
     public let plural: String
     public let pluralGenetive: String
