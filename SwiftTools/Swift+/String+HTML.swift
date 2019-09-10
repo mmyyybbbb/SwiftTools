@@ -63,7 +63,8 @@ public extension String {
         escapedString = escapedString.remove(["<strong>", "</strong>"])
         escapedString = escapedString.remove(["<ul>", "</ul>", "</li>"])
         escapedString = escapedString.replace(["<li>"], with: "● ")
-
+        escapedString = escapedString.remove(["<ol>", "</ol>"])
+        
         escapedString = escapedString.unescaped
 
         return escapedString
