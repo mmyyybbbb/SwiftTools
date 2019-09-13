@@ -34,18 +34,11 @@ public extension String {
 
      - returns: Атрибутная строка.
      */
-    var htmlToAttributed: NSAttributedString {
+    var htmlToAttributed: NSAttributedString? {
+        guard let data = data(using: .utf8) else { return NSAttributedString() }
         do {
-            guard let data = self.data(using: .utf8, allowLossyConversion: true) else {
-                return NSAttributedString()
-            }
-
-            let attributedString = try NSAttributedString(data: data,
-                                                          options: [.documentType: NSAttributedString.DocumentType.html],
-                                                          documentAttributes: nil)
-            return attributedString
+            return try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
         } catch {
-            debugPrint(error)
             return NSAttributedString()
         }
     }
