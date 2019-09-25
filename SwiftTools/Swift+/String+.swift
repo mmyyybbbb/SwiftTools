@@ -49,6 +49,8 @@ public extension String {
         case subdivision = "***-***"
         case date = "**.**.****"
         case passportSeriesNumber = "**** ******"
+        case creditCard = "**** **** **** ****"
+        case issueDate = "**/**"
 
         public var placeholderValue: String {
             switch self {
