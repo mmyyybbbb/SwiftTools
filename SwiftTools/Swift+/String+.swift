@@ -51,6 +51,7 @@ public extension String {
         case passportSeriesNumber = "**** ******"
         case creditCard = "**** **** **** ****"
         case issueDate = "**/**"
+        case cvc = "***"
 
         public var placeholderValue: String {
             switch self {
