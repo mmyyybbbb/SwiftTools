@@ -79,7 +79,7 @@ public extension Date {
      Неделя назад.
      */
     static var weekAgo: Date {
-        return today.dateByAdding(.day, value: -7) ?? today
+        return today.dateByAdding(.day, value: -6) ?? today
     }
     
     /**
