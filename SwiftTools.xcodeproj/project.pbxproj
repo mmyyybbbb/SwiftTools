@@ -32,8 +32,9 @@
 		03B2955022D633B6003D8D6D /* ImageResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2954F22D633B6003D8D6D /* ImageResource.swift */; };
 		03B2955922D641FB003D8D6D /* Decimal+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2955822D641FB003D8D6D /* Decimal+.swift */; };
 		03C5E18222E5F8090097B397 /* AssociatedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C5E18122E5F8090097B397 /* AssociatedStore.swift */; };
-		2F754645231C6C3C00E3F900 /* SynchronizedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F754644231C6C3C00E3F900 /* SynchronizedArray.swift */; };
+		2F754645231C6C3C00E3F900 /* ThreadSafeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F754644231C6C3C00E3F900 /* ThreadSafeArray.swift */; };
 		2F91963D22F9A2E800C784EC /* UIImage+cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F91963C22F9A2E800C784EC /* UIImage+cache.swift */; };
+		2FFF6A5023477A2700A916A8 /* ThreadSafeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFF6A4F23477A2700A916A8 /* ThreadSafeDictionary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,8 +68,9 @@
 		03B2954F22D633B6003D8D6D /* ImageResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResource.swift; sourceTree = "<group>"; };
 		03B2955822D641FB003D8D6D /* Decimal+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Decimal+.swift"; sourceTree = "<group>"; };
 		03C5E18122E5F8090097B397 /* AssociatedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociatedStore.swift; sourceTree = "<group>"; };
-		2F754644231C6C3C00E3F900 /* SynchronizedArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedArray.swift; sourceTree = "<group>"; };
+		2F754644231C6C3C00E3F900 /* ThreadSafeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafeArray.swift; sourceTree = "<group>"; };
 		2F91963C22F9A2E800C784EC /* UIImage+cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+cache.swift"; sourceTree = "<group>"; };
+		2FFF6A4F23477A2700A916A8 /* ThreadSafeDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafeDictionary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,7 +205,8 @@
 		2F754643231C6C3000E3F900 /* SynchronizedCollections */ = {
 			isa = PBXGroup;
 			children = (
-				2F754644231C6C3C00E3F900 /* SynchronizedArray.swift */,
+				2F754644231C6C3C00E3F900 /* ThreadSafeArray.swift */,
+				2FFF6A4F23477A2700A916A8 /* ThreadSafeDictionary.swift */,
 			);
 			path = SynchronizedCollections;
 			sourceTree = "<group>";
@@ -315,9 +318,10 @@
 				03A5720922D8BF1300B182E6 /* Number+.swift in Sources */,
 				03B2953922D63049003D8D6D /* Optional+String.swift in Sources */,
 				2F91963D22F9A2E800C784EC /* UIImage+cache.swift in Sources */,
-				2F754645231C6C3C00E3F900 /* SynchronizedArray.swift in Sources */,
+				2F754645231C6C3C00E3F900 /* ThreadSafeArray.swift in Sources */,
 				03A5737D22E1C59500B182E6 /* UIImageView+ImageLoader.swift in Sources */,
 				03B2953B22D63067003D8D6D /* String+.swift in Sources */,
+				2FFF6A5023477A2700A916A8 /* ThreadSafeDictionary.swift in Sources */,
 				03B2953122D62F9C003D8D6D /* Date+.swift in Sources */,
 				034F51B322E1D68F00AC1A0E /* KeyChainService.swift in Sources */,
 				034F51B122E1D66A00AC1A0E /* Device+.swift in Sources */,

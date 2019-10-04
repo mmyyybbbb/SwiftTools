@@ -9,8 +9,8 @@
 import Foundation
 
 /// A thread-safe array.
-public class SynchronizedArray<Element> {
-    private let queue = DispatchQueue(label: "swifttools.SynchronizedArray", attributes: .concurrent)
+public class ThreadSafeArray<Element> {
+    private let queue = DispatchQueue(label: "swifttools.ThreadSafeArray", attributes: .concurrent)
     private var array = [Element]()
     
     public init() { }
@@ -22,7 +22,7 @@ public class SynchronizedArray<Element> {
 }
 
 // MARK: - Properties
-public extension SynchronizedArray {
+public extension ThreadSafeArray {
     
     /// The first element of the collection.
     var first: Element? {
@@ -61,7 +61,7 @@ public extension SynchronizedArray {
 }
 
 // MARK: - Immutable
-public extension SynchronizedArray {
+public extension ThreadSafeArray {
     
     /// Returns the first element of the sequence that satisfies the given predicate.
     ///
@@ -87,9 +87,9 @@ public extension SynchronizedArray {
     ///
     /// - Parameter isIncluded: A closure that takes an element of the sequence as its argument and returns a Boolean value indicating whether the element should be included in the returned array.
     /// - Returns: An array of the elements that includeElement allowed.
-    func filter(_ isIncluded: @escaping (Element) -> Bool) -> SynchronizedArray {
-        var result: SynchronizedArray?
-        queue.sync { result = SynchronizedArray(self.array.filter(isIncluded)) }
+    func filter(_ isIncluded: @escaping (Element) -> Bool) -> ThreadSafeArray {
+        var result: ThreadSafeArray?
+        queue.sync { result = ThreadSafeArray(self.array.filter(isIncluded)) }
         return result!
     }
     
@@ -107,9 +107,9 @@ public extension SynchronizedArray {
     ///
     /// - Parameter areInIncreasingOrder: A predicate that returns true if its first argument should be ordered before its second argument; otherwise, false.
     /// - Returns: A sorted array of the collection’s elements.
-    func sorted(by areInIncreasingOrder: (Element, Element) -> Bool) -> SynchronizedArray {
-        var result: SynchronizedArray?
-        queue.sync { result = SynchronizedArray(self.array.sorted(by: areInIncreasingOrder)) }
+    func sorted(by areInIncreasingOrder: (Element, Element) -> Bool) -> ThreadSafeArray {
+        var result: ThreadSafeArray?
+        queue.sync { result = ThreadSafeArray(self.array.sorted(by: areInIncreasingOrder)) }
         return result!
     }
     
@@ -186,7 +186,7 @@ public extension SynchronizedArray {
 }
 
 // MARK: - Mutable
-public extension SynchronizedArray {
+public extension ThreadSafeArray {
     
     /// Adds a new element at the end of the array.
     ///
@@ -258,7 +258,7 @@ public extension SynchronizedArray {
     }
 }
 
-public extension SynchronizedArray {
+public extension ThreadSafeArray {
     
     /// Accesses the element at the specified position if it exists.
     ///
@@ -286,7 +286,7 @@ public extension SynchronizedArray {
 }
 
 // MARK: - Equatable
-public extension SynchronizedArray where Element: Equatable {
+public extension ThreadSafeArray where Element: Equatable {
     
     /// Returns a Boolean value indicating whether the sequence contains the given element.
     ///
@@ -300,14 +300,14 @@ public extension SynchronizedArray where Element: Equatable {
 }
 
 // MARK: - Infix operators
-public extension SynchronizedArray {
+public extension ThreadSafeArray {
     
     /// Adds a new element at the end of the array.
     ///
     /// - Parameters:
     ///   - left: The collection to append to.
     ///   - right: The element to append to the array.
-    static func +=(left: inout SynchronizedArray, right: Element) {
+    static func +=(left: inout ThreadSafeArray, right: Element) {
         left.append(right)
     }
     
@@ -316,7 +316,7 @@ public extension SynchronizedArray {
     /// - Parameters:
     ///   - left: The collection to append to.
     ///   - right: The elements to append to the array.
-    static func +=(left: inout SynchronizedArray, right: [Element]) {
+    static func +=(left: inout ThreadSafeArray, right: [Element]) {
         left.append(right)
     }
 }
