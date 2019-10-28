@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol LoggerDelegate: class {
-    func didRecieveLog(log: Logger.Log, loggerName: String)
+    func didRecieveLog(log: Logger.Log, logger: Logger)
 }
 
 public class Logger {
@@ -79,7 +79,7 @@ public class Logger {
     }
     
     public func log(_ log: Log) {
-        delegate?.didRecieveLog(log: log, loggerName: name)
+        delegate?.didRecieveLog(log: log, logger: self)
     }
 }
 
