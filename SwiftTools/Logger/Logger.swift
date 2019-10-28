@@ -32,6 +32,8 @@ public class Logger {
         case unexpected(String)
         case analytic(Analytic)
         case error(Error)
+        case success(String)
+        case info(String)
     }
     
     public struct Log {
@@ -91,6 +93,8 @@ extension Logger.Log: CustomStringConvertible {
         case .analytic(let analityc): header = "ANALYTIC\n[\(analityc.name)] \(analityc)"
         case .error(let error): header = "ERROR\n[\(error)]"
         case .unexpected(let message): header = "UNEXPECTED\n[\(message)]"
+        case .success(let message): header = "SUCCESS\n[\(message)]"
+        case .info(let message): header = "INFO\n[\(message)]"
         }
         
         return """
