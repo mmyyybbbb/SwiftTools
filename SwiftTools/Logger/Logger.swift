@@ -34,6 +34,7 @@ public class Logger {
         case error(Error)
         case success(String)
         case info(String)
+        case debug(String)
     }
     
     public struct Log {
@@ -75,6 +76,10 @@ public class Logger {
         log(.error(error), file: file, function: function, line: line, scope: scope, tag: tag)
     }
     
+    public func debug(_ message: String, file: String = #file, function: String = #function, line: UInt = #line, scope: String = "" , tag: String = "") {
+        log(.debug(message), file: file, function: function, line: line, scope: scope, tag: tag)
+    }
+    
     public func log(_ event: Event, file: String = #file, function: String = #function, line: UInt = #line, scope: String = "" , tag: String = "") {
         let log = Log(event: event, file: file, function: function, line: line, scope: scope, tag: tag)
         self.log(log)
@@ -95,10 +100,11 @@ extension Logger.Log: CustomStringConvertible {
         case .unexpected(let message): header = "UNEXPECTED\n[\(message)]"
         case .success(let message): header = "SUCCESS\n[\(message)]"
         case .info(let message): header = "INFO\n[\(message)]"
+        case .debug(let message): header = "DEBUG\n[\(message)]"
         }
         
         return """
-        \(header)
+        \(scope): \(header)
         file: \(file)
         function: \(function)
         line: \(line)
