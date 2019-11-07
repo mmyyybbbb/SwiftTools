@@ -81,5 +81,12 @@ public extension ThreadSafeDictionary {
         }
     }
     
+    func removeValue(forKey key: Key, completion: ((Value?) -> Void)? = nil) {
+        queue.async(flags: .barrier) {
+            let value = self.dictionary.removeValue(forKey: key)
+            DispatchQueue.main.async { completion?(value) }
+        }
+    }
+    
 }
 
