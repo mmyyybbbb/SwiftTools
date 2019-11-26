@@ -11,6 +11,9 @@
 		034F51B122E1D66A00AC1A0E /* Device+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034F51B022E1D66A00AC1A0E /* Device+.swift */; };
 		034F51B322E1D68F00AC1A0E /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034F51B222E1D68F00AC1A0E /* KeyChainService.swift */; };
 		0355B15222F1D66D0064FB83 /* Sequence+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0355B15122F1D66D0064FB83 /* Sequence+.swift */; };
+		037AB57B238D34A00041EB43 /* Persist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037AB57A238D34A00041EB43 /* Persist.swift */; };
+		037AB57E238D34C30041EB43 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037AB57D238D34C30041EB43 /* KeychainWrapper.swift */; };
+		037AB581238D34D30041EB43 /* AppContextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037AB580238D34D30041EB43 /* AppContextType.swift */; };
 		03A5720922D8BF1300B182E6 /* Number+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A5720822D8BF1300B182E6 /* Number+.swift */; };
 		03A5737C22E1C59500B182E6 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A5737A22E1C59500B182E6 /* ImageLoader.swift */; };
 		03A5737D22E1C59500B182E6 /* UIImageView+ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A5737B22E1C59500B182E6 /* UIImageView+ImageLoader.swift */; };
@@ -46,6 +49,9 @@
 		034F51BD22E1DC7600AC1A0E /* pod_lint.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pod_lint.sh; sourceTree = "<group>"; };
 		034F51BE22E1DC7700AC1A0E /* pod_push.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pod_push.sh; sourceTree = "<group>"; };
 		0355B15122F1D66D0064FB83 /* Sequence+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+.swift"; sourceTree = "<group>"; };
+		037AB57A238D34A00041EB43 /* Persist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persist.swift; sourceTree = "<group>"; };
+		037AB57D238D34C30041EB43 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		037AB580238D34D30041EB43 /* AppContextType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContextType.swift; sourceTree = "<group>"; };
 		03A5720822D8BF1300B182E6 /* Number+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+.swift"; sourceTree = "<group>"; };
 		03A5737A22E1C59500B182E6 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		03A5737B22E1C59500B182E6 /* UIImageView+ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageLoader.swift"; sourceTree = "<group>"; };
@@ -119,6 +125,30 @@
 			path = Keychain;
 			sourceTree = "<group>";
 		};
+		037AB579238D34A00041EB43 /* Persist */ = {
+			isa = PBXGroup;
+			children = (
+				037AB57A238D34A00041EB43 /* Persist.swift */,
+			);
+			path = Persist;
+			sourceTree = "<group>";
+		};
+		037AB57C238D34C30041EB43 /* KeychainWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				037AB57D238D34C30041EB43 /* KeychainWrapper.swift */,
+			);
+			path = KeychainWrapper;
+			sourceTree = "<group>";
+		};
+		037AB57F238D34D30041EB43 /* AppContextFramework */ = {
+			isa = PBXGroup;
+			children = (
+				037AB580238D34D30041EB43 /* AppContextType.swift */,
+			);
+			path = AppContextFramework;
+			sourceTree = "<group>";
+		};
 		03A5737922E1C59500B182E6 /* ImageLoaderFramework */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +188,9 @@
 		03B2952422D624A9003D8D6D /* SwiftTools */ = {
 			isa = PBXGroup;
 			children = (
+				037AB57F238D34D30041EB43 /* AppContextFramework */,
+				037AB57C238D34C30041EB43 /* KeychainWrapper */,
+				037AB579238D34A00041EB43 /* Persist */,
 				03B1894F23672469004143B4 /* Logger */,
 				2F754643231C6C3000E3F900 /* SynchronizedCollections */,
 				2F91963B22F9A2D900C784EC /* ImageCache */,
@@ -319,6 +352,7 @@
 				0355B15222F1D66D0064FB83 /* Sequence+.swift in Sources */,
 				03B2954822D632FA003D8D6D /* String+HTML.swift in Sources */,
 				03B2954C22D6335A003D8D6D /* NumberFormatter.swift in Sources */,
+				037AB57E238D34C30041EB43 /* KeychainWrapper.swift in Sources */,
 				03B2953322D62FC5003D8D6D /* DateFormatterBuilder.swift in Sources */,
 				034F51AE22E1D5AE00AC1A0E /* String+Md5.swift in Sources */,
 				03B189512367247A004143B4 /* Logger.swift in Sources */,
@@ -335,9 +369,11 @@
 				03B2953B22D63067003D8D6D /* String+.swift in Sources */,
 				2FFF6A5023477A2700A916A8 /* ThreadSafeDictionary.swift in Sources */,
 				03B2953122D62F9C003D8D6D /* Date+.swift in Sources */,
+				037AB57B238D34A00041EB43 /* Persist.swift in Sources */,
 				034F51B322E1D68F00AC1A0E /* KeyChainService.swift in Sources */,
 				034F51B122E1D66A00AC1A0E /* Device+.swift in Sources */,
 				03B2955922D641FB003D8D6D /* Decimal+.swift in Sources */,
+				037AB581238D34D30041EB43 /* AppContextType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
