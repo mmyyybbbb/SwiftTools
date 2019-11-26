@@ -18,4 +18,9 @@ public struct Persist<T> {
       UserDefaults.standard.set(newValue, forKey: key)
     }
   }
+    
+    public init(key: String, defaultValue: T) {
+        self.key = key
+        self.defaultValue = defaultValue
+    }
 }
