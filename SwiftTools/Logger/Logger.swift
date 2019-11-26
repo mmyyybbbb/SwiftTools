@@ -113,3 +113,8 @@ extension Logger.Log {
         """
     }
 }
+
+extension Logger.Log: CustomStringConvertible {
+    public var description: String { text }
+    
+}
