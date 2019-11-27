@@ -90,17 +90,17 @@ public class Logger {
     }
 }
 
-extension Logger.Log: CustomStringConvertible {
-    public var description: String {
+extension Logger.Log {
+    public var text: String {
         let header: String
         
         switch event {
-        case .analytic(let analityc): header = "ANALYTIC\n[\(analityc.name)] \(analityc)"
-        case .error(let error): header = "ERROR\n[\(error)]"
-        case .unexpected(let message): header = "UNEXPECTED\n[\(message)]"
-        case .success(let message): header = "SUCCESS\n[\(message)]"
-        case .info(let message): header = "INFO\n[\(message)]"
-        case .debug(let message): header = "DEBUG\n[\(message)]"
+        case .analytic(let analityc): header = "ANALYTIC\n\t\t[\(analityc.name)] \(analityc)"
+        case .error(let error): header = "ERROR\n\t\t[\(error)]"
+        case .unexpected(let message): header = "UNEXPECTED\n\t\t[\(message)]"
+        case .success(let message): header = "SUCCESS\n\t\t[\(message)]"
+        case .info(let message): header = "INFO\n\t\t[\(message)]"
+        case .debug(let message): header = "DEBUG\n\t\t[\(message)]"
         }
         
         return """
