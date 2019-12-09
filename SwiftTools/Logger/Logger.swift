@@ -16,6 +16,10 @@ public class Logger {
      
     public struct Scope {
         public let name: String
+        
+        public init(_ name: String) {
+            self.name = name 
+        }
     }
     
     public struct Analytic {
