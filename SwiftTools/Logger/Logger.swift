@@ -14,6 +14,14 @@ public protocol LoggerDelegate: class {
 
 public class Logger {
      
+    public struct Scope {
+        public let name: String
+        
+        public init(_ name: String) {
+            self.name = name 
+        }
+    }
+    
     public struct Analytic {
         public let name: String
         public let params: [String: Any]
@@ -82,6 +90,27 @@ public class Logger {
     
     public func log(_ event: Event, file: String = #file, function: String = #function, line: UInt = #line, scope: String = "" , tag: String = "") {
         let log = Log(event: event, file: file, function: function, line: line, scope: scope, tag: tag)
+        self.log(log)
+    }
+    
+    public func unexpected(_ message: String, file: String = #file, function: String = #function, line: UInt = #line, scope: Scope , tag: String = "") {
+        log(.unexpected(message), file: file, function: function, line: line, scope: scope.name, tag: tag)
+    }
+    
+    public func analytic(_ analytic: Analytic, file: String = #file, function: String = #function, line: UInt = #line, scope: Scope , tag: String = "") {
+        log(.analytic(analytic), file: file, function: function, line: line, scope: scope.name, tag: tag)
+    }
+    
+    public func error(_ error: Error, file: String = #file, function: String = #function, line: UInt = #line, scope: Scope , tag: String = "") {
+        log(.error(error), file: file, function: function, line: line, scope: scope.name, tag: tag)
+    }
+    
+    public func debug(_ message: String, file: String = #file, function: String = #function, line: UInt = #line, scope: Scope , tag: String = "") {
+        log(.debug(message), file: file, function: function, line: line, scope: scope.name, tag: tag)
+    }
+    
+    public func log(_ event: Event, file: String = #file, function: String = #function, line: UInt = #line, scope: Scope, tag: String = "") {
+        let log = Log(event: event, file: file, function: function, line: line, scope: scope.name, tag: tag)
         self.log(log)
     }
     

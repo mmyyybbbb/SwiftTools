@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SwiftTools'
-  s.version          = '1.0.8'
+  s.version          = '2.0.0'
   s.summary          = 'Модуль SwiftTools'
   s.homepage         = 'https://gitlab.com/BCSBroker/iOS/SwiftTools'
   s.author           = 'BCS'
