@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '10.0'
   s.swift_version = '5.0'
   s.module_name  = 'BCSSwiftTools'  
-  s.source_files  = 'SwiftTools/**/*.swift' 
+  s.source_files  = 'BCSSwiftTools/**/*.swift' 
 end
