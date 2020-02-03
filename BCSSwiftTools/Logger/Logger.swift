@@ -43,6 +43,7 @@ public class Logger {
         case success(String)
         case info(String)
         case debug(String)
+        case call(function: String, info: String)
     }
     
     public struct Log {
@@ -114,6 +115,10 @@ public class Logger {
         self.log(log)
     }
     
+    public func call(_ funcs: String, info: String, file: String = #file, function: String = #function, line: UInt = #line, scope: Scope, tag: String = "") {
+         log(.call(function: funcs, info: info), file: file, function: function, line: line, scope: scope.name, tag: tag)
+    }
+    
     public func log(_ log: Log) {
         delegate?.didRecieveLog(log: log, logger: self)
     }
@@ -130,8 +135,8 @@ extension Logger.Log {
         case .success(let message): header = "SUCCESS\n\t\t[\(message)]"
         case .info(let message): header = "INFO\n\t\t[\(message)]"
         case .debug(let message): header = "DEBUG\n\t\t[\(message)]"
+        case let .call(call, info): header = "CALL[\(call)]\n\t\t\(info)"
         }
-        
         return """
         \(scope): \(header)
         file: \(file)
