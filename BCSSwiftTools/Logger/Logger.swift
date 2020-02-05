@@ -137,18 +137,20 @@ extension Logger.Log {
         case .debug(let message): header = "DEBUG\n\t\t[\(message)]"
         case let .call(call, info): header = "CALL[\(call)]\n\t\t\(info)"
         }
-        return """
-        \(scope): \(header)
-        file: \(file)
-        function: \(function)
-        line: \(line)
-        scope: \(scope)
-        tag: \(tag)
-        """
+        return "\(scope): \(header)"
+       
     }
 }
 
 extension Logger.Log: CustomStringConvertible {
     public var description: String { text }
-    
+    public var fullDescription: String {
+        """
+        \(text)
+        file: \(file)
+        function: \(function)
+        line: \(line)
+        tag: \(tag)
+        """
+    }
 }
