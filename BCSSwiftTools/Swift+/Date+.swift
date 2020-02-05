@@ -39,6 +39,7 @@ public extension Date {
         case yyyy_MM_dd     = "yyyy-MM-dd"
         
         case iso8601        = "yyyy-MM-dd'T'HH:mm:ss"
+        case iso8601Z       = "yyyy-MM-dd'T'HH:mm:ss'Z'"
         case iso8601ZZZ     = "yyyy-MM-dd'T'HH:mm:ssZZZ"
         case isoFull        = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
         case relative       = "relative"
