@@ -55,6 +55,7 @@
 		2F754645231C6C3C00E3F900 /* ThreadSafeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F754644231C6C3C00E3F900 /* ThreadSafeArray.swift */; };
 		2F91963D22F9A2E800C784EC /* UIImage+cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F91963C22F9A2E800C784EC /* UIImage+cache.swift */; };
 		2FFF6A5023477A2700A916A8 /* ThreadSafeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFF6A4F23477A2700A916A8 /* ThreadSafeDictionary.swift */; };
+		CB5FEA3923F594A50062F3A6 /* EnumPersist.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5FEA3823F594A50062F3A6 /* EnumPersist.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +110,7 @@
 		2F754644231C6C3C00E3F900 /* ThreadSafeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafeArray.swift; sourceTree = "<group>"; };
 		2F91963C22F9A2E800C784EC /* UIImage+cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+cache.swift"; sourceTree = "<group>"; };
 		2FFF6A4F23477A2700A916A8 /* ThreadSafeDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafeDictionary.swift; sourceTree = "<group>"; };
+		CB5FEA3823F594A50062F3A6 /* EnumPersist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumPersist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				037AB57A238D34A00041EB43 /* Persist.swift */,
+				CB5FEA3823F594A50062F3A6 /* EnumPersist.swift */,
 			);
 			path = Persist;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				034F51B122E1D66A00AC1A0E /* Device+.swift in Sources */,
 				03378D88239FA1AC0095F00D /* AppServicesManager+URLOpening.swift in Sources */,
 				03B2955922D641FB003D8D6D /* Decimal+.swift in Sources */,
+				CB5FEA3923F594A50062F3A6 /* EnumPersist.swift in Sources */,
 				03378D82239FA1AC0095F00D /* AppServicesManager+HealthKitInteracting.swift in Sources */,
 				03378D85239FA1AC0095F00D /* AppServicesManager+AppStateAndSystemEvents.swift in Sources */,
 				037AB581238D34D30041EB43 /* AppContextType.swift in Sources */,
