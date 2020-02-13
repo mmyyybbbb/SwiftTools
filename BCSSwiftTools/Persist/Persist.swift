@@ -7,17 +7,17 @@
 
 @propertyWrapper
 public struct Persist<T> {
-  public let key: String
-  public let defaultValue: T
- 
-  public var wrappedValue: T {
-    get {
-      return UserDefaults.standard.object(forKey: key) as? T ?? defaultValue
+    public let key: String
+    public let defaultValue: T
+    
+    public var wrappedValue: T {
+        get {
+            return UserDefaults.standard.object(forKey: key) as? T ?? defaultValue
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: key)
+        }
     }
-    set {
-      UserDefaults.standard.set(newValue, forKey: key)
-    }
-  }
     
     public init(key: String, defaultValue: T) {
         self.key = key
