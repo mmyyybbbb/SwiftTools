@@ -24,6 +24,7 @@ public extension Date {
         
         case dMMM           = "d MMM"
         case dMMMyyyy       = "d MMM, yyyy"
+        case dMMMHHmm      = "d MMM HH:mm"
         
         case ddMMMM         = "dd MMMM"
         case ddMMMMyyyy     = "dd MMMM yyyy"
