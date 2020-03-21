@@ -254,6 +254,7 @@ public enum DateAccuracyType: String {
     case minute
     case minuteShort
     case seconds
+    case quoteTime
 }
 
 public extension Date {
@@ -273,7 +274,7 @@ public extension Date {
      - returns: Строка представления даты.
      */
     func relative(_ accuracy: DateAccuracyType) -> String {
-        let type = relativeType()
+        let type = relativeType
         
         switch accuracy {
         case .day:
@@ -286,10 +287,12 @@ public extension Date {
             return relativeMinute(relativeType: type, short: true)
         case .seconds:
             return relativeSecond(relativeType: type)
+        case .quoteTime:
+            return relativeQuoteTime(relativeType: type)
         }
     }
     
-    private func relativeType() -> RelativeDateFormat {
+    var relativeType: RelativeDateFormat {
         let calendar = Calendar.current
         let components        = calendar.dateComponents([.second, .minute, .hour, .day, .month, .year], from: self)
         let componentsNowDate = calendar.dateComponents([.second, .minute, .hour, .day, .month, .year], from: Date())
@@ -306,7 +309,6 @@ public extension Date {
     }
     
     private func relativeDay(relativeType: RelativeDateFormat, short: Bool = false) -> String {
-        
         switch relativeType {
         case .today:
             return "Сегодня"
@@ -340,6 +342,17 @@ public extension Date {
             return "Вчера в \(DateFormatterBuilder.HHmmss.string(from: self))"
         case .thisYear, .yearAgo:
             return "\(DateFormatterBuilder.dateFormatter(.ddMMyy).string(from: self)) \(DateFormatterBuilder.dateFormatter(.HHmmss).string(from: self))"
+        }
+    }
+    
+    private func relativeQuoteTime(relativeType: RelativeDateFormat) -> String {
+        switch relativeType {
+        case .today:
+            return DateFormatterBuilder.HHmmss.string(from: self)
+        case .yesterday:
+            return "Вчера, \(DateFormatterBuilder.HHmmss.string(from: self))"
+        default:
+            return "\(DateFormatterBuilder.dateFormatter(.dMMM).string(from: self)), \(DateFormatterBuilder.dateFormatter(.HHmmss).string(from: self))"
         }
     }
 }
