@@ -9,6 +9,13 @@ public enum ImageResource {
     case image(UIImage)
     case url(URL)
     case provider(ImageProvider, imageId: String)
+    
+    /// Загружает изображение и кеширует
+    /// Работает только для .url
+    public func downloadAndCache() {
+        guard case let .url(url) = self else { return }
+        ImageLoader.shared.load(by: url, completion: { _ in })
+    }
 }
 
 public typealias ImageProviderCompletion = (UIImage?) -> Void
