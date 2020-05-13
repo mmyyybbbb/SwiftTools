@@ -55,6 +55,7 @@
 		2F754645231C6C3C00E3F900 /* ThreadSafeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F754644231C6C3C00E3F900 /* ThreadSafeArray.swift */; };
 		2F91963D22F9A2E800C784EC /* UIImage+cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F91963C22F9A2E800C784EC /* UIImage+cache.swift */; };
 		2FFF6A5023477A2700A916A8 /* ThreadSafeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFF6A4F23477A2700A916A8 /* ThreadSafeDictionary.swift */; };
+		4F1D130C246B9E780086506C /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D130B246B9E780086506C /* Array+.swift */; };
 		CB5FEA3923F594A50062F3A6 /* EnumPersist.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5FEA3823F594A50062F3A6 /* EnumPersist.swift */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,7 @@
 		2F754644231C6C3C00E3F900 /* ThreadSafeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafeArray.swift; sourceTree = "<group>"; };
 		2F91963C22F9A2E800C784EC /* UIImage+cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+cache.swift"; sourceTree = "<group>"; };
 		2FFF6A4F23477A2700A916A8 /* ThreadSafeDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafeDictionary.swift; sourceTree = "<group>"; };
+		4F1D130B246B9E780086506C /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		CB5FEA3823F594A50062F3A6 /* EnumPersist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumPersist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -281,6 +283,7 @@
 				03B2953A22D63067003D8D6D /* String+.swift */,
 				0355B15122F1D66D0064FB83 /* Sequence+.swift */,
 				03378D6C239FA1620095F00D /* CommandLine+.swift */,
+				4F1D130B246B9E780086506C /* Array+.swift */,
 			);
 			path = "Swift+";
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				03378D7F239FA1AC0095F00D /* AppServicesManager+RemoteNotification.swift in Sources */,
 				03378D8C239FA1AC0095F00D /* AppServicesManager+InterfaceGeometry.swift in Sources */,
 				03378D87239FA1AC0095F00D /* AppServicesManager+CloudKitHandling.swift in Sources */,
+				4F1D130C246B9E780086506C /* Array+.swift in Sources */,
 				0355B15222F1D66D0064FB83 /* Sequence+.swift in Sources */,
 				03378D7E239FA1AC0095F00D /* AppServicesManager+WatchKitInteracting.swift in Sources */,
 				03B2954822D632FA003D8D6D /* String+HTML.swift in Sources */,
@@ -590,7 +594,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.15;
+				MARKETING_VERSION = 2.0.16;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.bcs.BCSSwiftTools;
 				PRODUCT_NAME = BCSSwiftTools;
 				SKIP_INSTALL = YES;
@@ -619,7 +623,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.15;
+				MARKETING_VERSION = 2.0.16;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.bcs.BCSSwiftTools;
 				PRODUCT_NAME = BCSSwiftTools;
 				SKIP_INSTALL = YES;

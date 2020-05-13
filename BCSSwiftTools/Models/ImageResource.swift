@@ -16,3 +16,15 @@ public typealias ImageProviderCompletion = (UIImage?) -> Void
 public protocol ImageProvider {
     func getImage(identifier: String, completion: @escaping ImageProviderCompletion)
 }
+
+extension ImageResource: Equatable {
+    public static func == (lhs: ImageResource, rhs: ImageResource) -> Bool {
+        switch (lhs, rhs) {
+        case (let .image(limg), let .image(rimg)): return limg == rimg
+        case (let .url(lurl), let .url(rurl)): return lurl == rurl
+        case (let .provider(_, lId), let .provider(_, rId)): return lId == rId
+        default: return false
+        }
+    }
+}
+ 
