@@ -42,6 +42,8 @@ public extension Date {
         case yyyyMMdd       = "yyyyMMdd"
         case yyyy_MM_dd     = "yyyy-MM-dd"
         
+        case MMddyyyyHHmmss = "MM/dd/yyyy HH:mm:ss"
+        
         case iso8601        = "yyyy-MM-dd'T'HH:mm:ss"
         case iso8601Z       = "yyyy-MM-dd'T'HH:mm:ss'Z'"
         case iso8601ZZZ     = "yyyy-MM-dd'T'HH:mm:ssZZZ"
@@ -372,5 +374,24 @@ public extension Date {
         default:
             return "\(DateFormatterBuilder.dateFormatter(.dMMM).string(from: self)), \(DateFormatterBuilder.dateFormatter(.HHmmss).string(from: self))"
         }
+    }
+    
+    /**
+     Проверка входит ли время в интервал времен
+     
+     - parameter start: Время начала интервала в формате HH:mm
+     - parameter end: Время конца интервала в формате HH:mm
+     - parameter timezone: Часовой пояс. По умолчанию Москва
+
+     - returns: Результат проверки
+     */
+    func inTimeInterval(start: String, end: String, timezone: TimeZone = .msk) -> Bool {
+        
+        let formatterTime = DateFormatter()
+        formatterTime.timeZone = timezone
+        formatterTime.dateFormat = "HH:mm"
+        let timeNow = formatterTime.string(from: self)
+
+        return timeNow >= start && timeNow < end
     }
 }
