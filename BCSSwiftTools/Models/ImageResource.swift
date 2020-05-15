@@ -34,4 +34,35 @@ extension ImageResource: Equatable {
         }
     }
 }
- 
+
+extension ImageResource: Codable {
+    private enum CodingKeys: String, CodingKey {
+        case url
+    }
+     
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        if let value = try? values.decode(String.self, forKey: .url) {
+            guard let url = URL(string: value) else { throw CodingError.decoding("Cant create URL from \(value)")}
+            self = .url(url)
+            return
+        }
+        throw CodingError.unsupportedCase("Whoops! \(dump(values))")
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        switch self {
+        case .url(let url):
+            try container.encode(url.absoluteString, forKey: .url)
+        default : throw CodingError.unsupportedCase("\(self)")
+        }
+    }
+}
+
+
+public enum CodingError: Error {
+    case decoding(String)
+    case encoding(String)
+    case unsupportedCase(String)
+}
