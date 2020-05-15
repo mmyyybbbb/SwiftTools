@@ -59,6 +59,7 @@
 		4F5D18BB246E6C28004AA1FA /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D18BA246E6C28004AA1FA /* UserDefaults+.swift */; };
 		4F5D18C3246E97E4004AA1FA /* BCSSwiftToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D18C2246E97E4004AA1FA /* BCSSwiftToolsTests.swift */; };
 		4F5D18C5246E97E4004AA1FA /* BCSSwiftTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B2952222D624A9003D8D6D /* BCSSwiftTools.framework */; };
+		4F5D18CE246EA9CE004AA1FA /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D18CD246EA9CE004AA1FA /* UIImage+.swift */; };
 		CB5FEA3923F594A50062F3A6 /* EnumPersist.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5FEA3823F594A50062F3A6 /* EnumPersist.swift */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +130,7 @@
 		4F5D18C0246E97E4004AA1FA /* BCSSwiftToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BCSSwiftToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F5D18C2246E97E4004AA1FA /* BCSSwiftToolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCSSwiftToolsTests.swift; sourceTree = "<group>"; };
 		4F5D18C4246E97E4004AA1FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F5D18CD246EA9CE004AA1FA /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		CB5FEA3823F594A50062F3A6 /* EnumPersist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumPersist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -312,6 +314,7 @@
 				03378D6C239FA1620095F00D /* CommandLine+.swift */,
 				4F1D130B246B9E780086506C /* Array+.swift */,
 				4F5D18BA246E6C28004AA1FA /* UserDefaults+.swift */,
+				4F5D18CD246EA9CE004AA1FA /* UIImage+.swift */,
 			);
 			path = "Swift+";
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				03378D84239FA1AC0095F00D /* AppServicesManager+InterfaceOrientations.swift in Sources */,
 				03B2953522D62FEA003D8D6D /* TimeZone+.swift in Sources */,
 				4F5D18BB246E6C28004AA1FA /* UserDefaults+.swift in Sources */,
+				4F5D18CE246EA9CE004AA1FA /* UIImage+.swift in Sources */,
 				03378D8B239FA1AC0095F00D /* AppServicesManager+HandlingActions.swift in Sources */,
 				03B2954A22D63333003D8D6D /* Double+.swift in Sources */,
 				03C5E18222E5F8090097B397 /* AssociatedStore.swift in Sources */,
@@ -678,7 +682,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.20;
+				MARKETING_VERSION = 2.0.21;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.bcs.BCSSwiftTools;
 				PRODUCT_NAME = BCSSwiftTools;
 				SKIP_INSTALL = YES;
@@ -707,7 +711,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.20;
+				MARKETING_VERSION = 2.0.21;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.bcs.BCSSwiftTools;
 				PRODUCT_NAME = BCSSwiftTools;
 				SKIP_INSTALL = YES;

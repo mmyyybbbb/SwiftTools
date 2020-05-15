@@ -21,4 +21,15 @@ class BCSSwiftToolsTests: XCTestCase {
         
         XCTAssert(originalRes == restoredRes)
     }
+    
+    func testCodable_ImageResource_Image() {
+        let image = UIImage(systemName: "heart.fill")!
+        let originalRes = ImageResource.image(image)
+        
+        UserDefaults.standard.set(object: originalRes, forKey: "res")
+        
+        let restoredRes = UserDefaults.standard.object(ImageResource.self, with: "res")
+        
+        XCTAssert(restoredRes != nil)
+    }
 }

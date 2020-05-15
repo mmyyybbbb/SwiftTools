@@ -38,13 +38,18 @@ extension ImageResource: Equatable {
 extension ImageResource: Codable {
     private enum CodingKeys: String, CodingKey {
         case url
+        case image
     }
-     
+    
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         if let value = try? values.decode(String.self, forKey: .url) {
             guard let url = URL(string: value) else { throw CodingError.decoding("Cant create URL from \(value)")}
             self = .url(url)
+            return
+        } else if let value = try? values.decode(String.self, forKey: .image) {
+            guard let image = value.toImage() else { throw CodingError.encoding("Cant convert string to image") }
+            self = .image(image)
             return
         }
         throw CodingError.unsupportedCase("Whoops! \(dump(values))")
@@ -55,6 +60,9 @@ extension ImageResource: Codable {
         switch self {
         case .url(let url):
             try container.encode(url.absoluteString, forKey: .url)
+        case .image(let image):
+            guard let imageAsString = image.toString() else { throw CodingError.encoding("Cant convert image to string") }
+            try container.encode(imageAsString, forKey: .image)
         default : throw CodingError.unsupportedCase("\(self)")
         }
     }
