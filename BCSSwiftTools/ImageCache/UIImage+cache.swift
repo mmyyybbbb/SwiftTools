@@ -28,8 +28,7 @@ public extension UIImage {
                     }
                     
                     try data.write(to: fileUrl, options: .atomic)
-                    
-                    debugPrint("trySaveToFile SUCCESS fileUrl", fileUrl)
+                     
                 } catch {
                     debugPrint(error)
                 }

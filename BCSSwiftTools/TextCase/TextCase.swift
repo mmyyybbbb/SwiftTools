@@ -24,6 +24,10 @@ public struct TextCase: Codable {
     }
     
     public func string(by value: Int) -> String {
+        if value >= 10 && value <= 20 {
+            return pluralGenetive
+        }
+        
         switch value % 10 {
         case 1: return single
         case 2, 3, 4: return plural

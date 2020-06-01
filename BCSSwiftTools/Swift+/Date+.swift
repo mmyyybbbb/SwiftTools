@@ -21,14 +21,20 @@ public extension Date {
         case ddMMyyyyг      = "dd.MM.yyyyг."
         case ddMMyyyyHHmm   = "dd.MM.yyyy (HH:mmмск)"
         case ddMMyyyyHHmmss = "dd.MM.yyyy HH:mm:ss"
+        case ddMMyyyyPHHmm  = "dd.MM.yyyy, HH:mm"
         
         case dMMM           = "d MMM"
         case dMMMyyyy       = "d MMM, yyyy"
+        /// dMMMyyyy без запятой. WP - without point
+        case dMMMWPyyyy      = "d MMM yyyy"
+        case dMMMHHmm       = "d MMM HH:mm"
         
         case ddMMMM         = "dd MMMM"
         case ddMMMMyyyy     = "dd MMMM yyyy"
         case dMMMM          = "d MMMM"
         case dMMMMyyyy      = "d MMMM, yyyy"
+        
+        case MMMMyyyy       = "MMMM yyyy"
         
         case dd             = "dd"
         case MMM            = "MMM"
@@ -38,7 +44,10 @@ public extension Date {
         case yyyyMMdd       = "yyyyMMdd"
         case yyyy_MM_dd     = "yyyy-MM-dd"
         
+        case MMddyyyyHHmmss = "MM/dd/yyyy HH:mm:ss"
+        
         case iso8601        = "yyyy-MM-dd'T'HH:mm:ss"
+        case iso8601Z       = "yyyy-MM-dd'T'HH:mm:ss'Z'"
         case iso8601ZZZ     = "yyyy-MM-dd'T'HH:mm:ssZZZ"
         case isoFull        = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
         case relative       = "relative"
@@ -242,6 +251,21 @@ public extension Date {
             return 0
         }
     }
+    
+    /**
+    Вычисляет интервал между двумя датами в заданных еденицах
+    
+    - returns: Количество секунд/часов/дней и т.д.
+    */
+    func interval(ofComponent comp: Calendar.Component, fromDate date: Date) -> Int {
+
+        let currentCalendar = Calendar.current
+
+        guard let start = currentCalendar.ordinality(of: comp, in: .era, for: date) else { return 0 }
+        guard let end = currentCalendar.ordinality(of: comp, in: .era, for: self) else { return 0 }
+
+        return end - start
+    }
 }
 
 // MARK: Relative
@@ -252,6 +276,7 @@ public enum DateAccuracyType: String {
     case minute
     case minuteShort
     case seconds
+    case quoteTime
 }
 
 public extension Date {
@@ -271,7 +296,7 @@ public extension Date {
      - returns: Строка представления даты.
      */
     func relative(_ accuracy: DateAccuracyType) -> String {
-        let type = relativeType()
+        let type = relativeType
         
         switch accuracy {
         case .day:
@@ -284,10 +309,12 @@ public extension Date {
             return relativeMinute(relativeType: type, short: true)
         case .seconds:
             return relativeSecond(relativeType: type)
+        case .quoteTime:
+            return relativeQuoteTime(relativeType: type)
         }
     }
     
-    private func relativeType() -> RelativeDateFormat {
+    var relativeType: RelativeDateFormat {
         let calendar = Calendar.current
         let components        = calendar.dateComponents([.second, .minute, .hour, .day, .month, .year], from: self)
         let componentsNowDate = calendar.dateComponents([.second, .minute, .hour, .day, .month, .year], from: Date())
@@ -304,7 +331,6 @@ public extension Date {
     }
     
     private func relativeDay(relativeType: RelativeDateFormat, short: Bool = false) -> String {
-        
         switch relativeType {
         case .today:
             return "Сегодня"
@@ -339,5 +365,35 @@ public extension Date {
         case .thisYear, .yearAgo:
             return "\(DateFormatterBuilder.dateFormatter(.ddMMyy).string(from: self)) \(DateFormatterBuilder.dateFormatter(.HHmmss).string(from: self))"
         }
+    }
+    
+    private func relativeQuoteTime(relativeType: RelativeDateFormat) -> String {
+        switch relativeType {
+        case .today:
+            return DateFormatterBuilder.HHmmss.string(from: self)
+        case .yesterday:
+            return "Вчера, \(DateFormatterBuilder.HHmmss.string(from: self))"
+        default:
+            return "\(DateFormatterBuilder.dateFormatter(.dMMM).string(from: self)), \(DateFormatterBuilder.dateFormatter(.HHmmss).string(from: self))"
+        }
+    }
+    
+    /**
+     Проверка входит ли время в интервал времен
+     
+     - parameter start: Время начала интервала в формате HH:mm
+     - parameter end: Время конца интервала в формате HH:mm
+     - parameter timezone: Часовой пояс. По умолчанию Москва
+
+     - returns: Результат проверки
+     */
+    func inTimeInterval(start: String, end: String, timezone: TimeZone = .msk) -> Bool {
+        
+        let formatterTime = DateFormatter()
+        formatterTime.timeZone = timezone
+        formatterTime.dateFormat = "HH:mm"
+        let timeNow = formatterTime.string(from: self)
+
+        return timeNow >= start && timeNow < end
     }
 }
