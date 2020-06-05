@@ -38,6 +38,7 @@ public extension Date {
         
         case dd             = "dd"
         case MMM            = "MMM"
+        case MMMM           = "MMMM"
         case yyyy           = "yyyy"
         case LLLL           = "LLLL"
         
@@ -313,25 +314,6 @@ public extension Date {
         return end - start
     }
     
-    /**
-    Возвращает название месяца
-     
-    - parameter short: Короткое название месяца
-     
-    - returns: Название месяца
-    */
-    
-    func currentMonthName(short: Bool = false) -> String {
-        guard let month = Calendar.current.dateComponents([.month], from: self).month, month > 0, month <= 12 else { return "" }
-        
-        let monthsNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
-        
-        var monthString = monthsNames[month-1]
-        
-        if short { monthString = monthString.substring(from: 0, length: 3) ?? "" }
-        
-        return monthString
-    }
 }
 
 // MARK: Relative
