@@ -70,6 +70,33 @@ public extension Date {
         return (Calendar.current as NSCalendar).date(byAdding: components, to: startOfDay, options: NSCalendar.Options())
     }
     
+    ///Предыдущий день.
+    
+    var previousDay: Date {
+        return Calendar.current.date(byAdding: .day, value: -1, to: self) ?? self
+    }
+    
+    ///Предыдущий месяц.
+    
+    var previousMonth: Date {
+        return Calendar.current.date(byAdding: .month, value: -1, to: self) ?? self
+    }
+    
+    ///Предыдущий год.
+    
+    var previousYear: Date {
+        return Calendar.current.date(byAdding: .year, value: -1, to: self) ?? self
+    }
+    
+    ///Число дней в месяце
+    
+    var countDaysInMonth: Int {
+        guard let interval = Calendar.current.dateInterval(of: .month, for: self),
+            let days = Calendar.current.dateComponents([.day], from: interval.start, to: interval.end).day else { return 0 }
+        
+        return days
+    }
+    
     /**
      Текущая дата.
      */
@@ -110,6 +137,25 @@ public extension Date {
      */
     static func currentYear() -> String {
         return DateFormatterBuilder.dateFormatter(.yyyy, timeZone: .utc).string(from: Date())
+    }
+    
+    /**
+    Дата из компонентов.
+    
+    - parameter day: День
+    - parameter month: Месяц
+    - parameter year: Год
+    
+    - returns: Дата.
+    */
+    
+    static func fromComponents(day: Int? = nil, month: Int? = nil, year: Int? = nil) -> Date {
+        var components = DateComponents()
+        components.year = year
+        components.month = month
+        components.day = day
+        
+        return Calendar.current.date(from: components) ?? Date()
     }
     
     /**
@@ -265,6 +311,26 @@ public extension Date {
         guard let end = currentCalendar.ordinality(of: comp, in: .era, for: self) else { return 0 }
 
         return end - start
+    }
+    
+    /**
+    Возвращает название месяца
+     
+    - parameter short: Короткое название месяца
+     
+    - returns: Название месяца
+    */
+    
+    func currentMonthName(short: Bool = false) -> String {
+        guard let month = Calendar.current.dateComponents([.month], from: self).month, month > 0, month <= 12 else { return "" }
+        
+        let monthsNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
+        
+        var monthString = monthsNames[month-1]
+        
+        if short { monthString = monthString.substring(from: 0, length: 3) ?? "" }
+        
+        return monthString
     }
 }
 
