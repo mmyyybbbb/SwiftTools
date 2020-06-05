@@ -98,6 +98,14 @@ public extension Date {
         return days
     }
     
+    var shortMonthName: String {
+        guard let month = self.string(.MMMM).substring(from: 0, length: 3) else { return "" }
+        var shortMonth = month.capitalizeFirstLetter()
+        /// Если май то пишем ручками
+        if Calendar.current.dateComponents([.month], from: self).month == 5 { shortMonth = "Май" }
+        return shortMonth
+    }
+    
     /**
      Текущая дата.
      */
