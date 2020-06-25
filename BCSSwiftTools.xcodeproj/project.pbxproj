@@ -61,6 +61,7 @@
 		4F5D18C3246E97E4004AA1FA /* BCSSwiftToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D18C2246E97E4004AA1FA /* BCSSwiftToolsTests.swift */; };
 		4F5D18C5246E97E4004AA1FA /* BCSSwiftTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B2952222D624A9003D8D6D /* BCSSwiftTools.framework */; };
 		4F5D18CE246EA9CE004AA1FA /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D18CD246EA9CE004AA1FA /* UIImage+.swift */; };
+		4FFBDE9F2484FAB000820802 /* String+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFBDE9E2484FAB000820802 /* String+Subscript.swift */; };
 		CB5FEA3923F594A50062F3A6 /* EnumPersist.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5FEA3823F594A50062F3A6 /* EnumPersist.swift */; };
 /* End PBXBuildFile section */
 
@@ -133,6 +134,7 @@
 		4F5D18C2246E97E4004AA1FA /* BCSSwiftToolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCSSwiftToolsTests.swift; sourceTree = "<group>"; };
 		4F5D18C4246E97E4004AA1FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F5D18CD246EA9CE004AA1FA /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		4FFBDE9E2484FAB000820802 /* String+Subscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Subscript.swift"; sourceTree = "<group>"; };
 		CB5FEA3823F594A50062F3A6 /* EnumPersist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumPersist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -300,6 +302,7 @@
 		03B2953E22D6311D003D8D6D /* Swift+ */ = {
 			isa = PBXGroup;
 			children = (
+				4FFBDE9E2484FAB000820802 /* String+Subscript.swift */,
 				034F51AD22E1D5AE00AC1A0E /* String+Md5.swift */,
 				03A5720822D8BF1300B182E6 /* Number+.swift */,
 				03B2954322D632D0003D8D6D /* String+Validation.swift */,
@@ -484,6 +487,7 @@
 			files = (
 				03378D84239FA1AC0095F00D /* AppServicesManager+InterfaceOrientations.swift in Sources */,
 				03B2953522D62FEA003D8D6D /* TimeZone+.swift in Sources */,
+				4FFBDE9F2484FAB000820802 /* String+Subscript.swift in Sources */,
 				4F5D18BB246E6C28004AA1FA /* UserDefaults+.swift in Sources */,
 				4F5D18CE246EA9CE004AA1FA /* UIImage+.swift in Sources */,
 				03378D8B239FA1AC0095F00D /* AppServicesManager+HandlingActions.swift in Sources */,
@@ -694,7 +698,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.23;
+				MARKETING_VERSION = 2.0.27;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.bcs.BCSSwiftTools;
 				PRODUCT_NAME = BCSSwiftTools;
 				SKIP_INSTALL = YES;
@@ -723,7 +727,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.23;
+				MARKETING_VERSION = 2.0.27;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.bcs.BCSSwiftTools;
 				PRODUCT_NAME = BCSSwiftTools;
 				SKIP_INSTALL = YES;

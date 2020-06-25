@@ -22,6 +22,7 @@ public extension Date {
         case ddMMyyyyHHmm   = "dd.MM.yyyy (HH:mmмск)"
         case ddMMyyyyHHmmss = "dd.MM.yyyy HH:mm:ss"
         case ddMMyyyyPHHmm  = "dd.MM.yyyy, HH:mm"
+        case ddMMyyHHmm     = "dd.MM.yy HH:mm"
         
         case dMMM           = "d MMM"
         case dMMMyyyy       = "d MMM, yyyy"
@@ -38,6 +39,7 @@ public extension Date {
         
         case dd             = "dd"
         case MMM            = "MMM"
+        case MMMM           = "MMMM"
         case yyyy           = "yyyy"
         case LLLL           = "LLLL"
         
@@ -68,6 +70,41 @@ public extension Date {
         components.day    = 1
         components.second = -1
         return (Calendar.current as NSCalendar).date(byAdding: components, to: startOfDay, options: NSCalendar.Options())
+    }
+    
+    ///Предыдущий день.
+    
+    var previousDay: Date {
+        return Calendar.current.date(byAdding: .day, value: -1, to: self) ?? self
+    }
+    
+    ///Предыдущий месяц.
+    
+    var previousMonth: Date {
+        return Calendar.current.date(byAdding: .month, value: -1, to: self) ?? self
+    }
+    
+    ///Предыдущий год.
+    
+    var previousYear: Date {
+        return Calendar.current.date(byAdding: .year, value: -1, to: self) ?? self
+    }
+    
+    ///Число дней в месяце
+    
+    var countDaysInMonth: Int {
+        guard let interval = Calendar.current.dateInterval(of: .month, for: self),
+            let days = Calendar.current.dateComponents([.day], from: interval.start, to: interval.end).day else { return 0 }
+        
+        return days
+    }
+    
+    var shortMonthName: String {
+        guard let month = self.string(.MMMM).substring(from: 0, length: 3) else { return "" }
+        var shortMonth = month.capitalizeFirstLetter()
+        /// Если май то пишем ручками
+        if Calendar.current.dateComponents([.month], from: self).month == 5 { shortMonth = "Май" }
+        return shortMonth
     }
     
     /**
@@ -110,6 +147,25 @@ public extension Date {
      */
     static func currentYear() -> String {
         return DateFormatterBuilder.dateFormatter(.yyyy, timeZone: .utc).string(from: Date())
+    }
+    
+    /**
+    Дата из компонентов.
+    
+    - parameter day: День
+    - parameter month: Месяц
+    - parameter year: Год
+    
+    - returns: Дата.
+    */
+    
+    static func fromComponents(day: Int? = nil, month: Int? = nil, year: Int? = nil) -> Date {
+        var components = DateComponents()
+        components.year = year
+        components.month = month
+        components.day = day
+        
+        return Calendar.current.date(from: components) ?? Date()
     }
     
     /**
@@ -266,6 +322,7 @@ public extension Date {
 
         return end - start
     }
+    
 }
 
 // MARK: Relative
