@@ -25,7 +25,13 @@ public class Logger {
     public struct MatomotoAnalytic {
         public let category: String
         public let action: String
-        public let dimansion: [Int: String]
+        public let dimension: [Int: String]
+        
+        public init(category: String, action: String, dimension: [Int: String]){
+            self.category = category
+            self.action = action
+            self.dimension = dimension
+        }
     }
     
     public struct Analytic {
@@ -45,7 +51,7 @@ public class Logger {
     public enum Event {
         case unexpected(String)
         case analytic(Analytic)
-        case motomotoAnalytic(MatomotoAnalytic)
+        case matomotoAnalytic(MatomotoAnalytic)
         case error(Error)
         case success(String)
         case info(String)
