@@ -149,7 +149,7 @@ extension Logger.Log {
         case .info(let message): header = "INFO\n\t\t[\(message)]"
         case .debug(let message): header = "DEBUG\n\t\t[\(message)]"
         case let .call(call, info): header = "CALL[\(call)]\n\t\t\(info)"
-        case .motomotoAnalytic(let analityc): header = "MOTOMOTO_ANALYTIC\n\t\t[\(analityc.category)] \(analityc.action)"
+        case .matomotoAnalytic(let analityc): header = "MOTOMOTO_ANALYTIC\n\t\t[\(analityc.category)] \(analityc.action)"
         }
         return "\(scope): \(header)"
        
