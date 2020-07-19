@@ -22,45 +22,56 @@ public class Logger {
         }
     }
     
+    public typealias AditionalParams = [String: Any]
+  
     public struct Analytic {
         public let name: String
-        public let params: [String: Any]
+        public let params: AditionalParams
         public let source: String?
         public let description: String?
+        /// В какие системы логировать, если не указан то во все
+        public let destinations: [String]
         
-        public init(name: String, params: [String: Any], source: String?, description: String?) {
+        public init(name: String, params: AditionalParams, source: String?, description: String?, destinations: [String] = []) {
             self.name = name
             self.params = params
             self.source = source
             self.description = description
+            self.destinations = destinations
         }
     }
     
     public enum Event {
+        /// Неожидаемое поведение соответсвует fatalError
         case unexpected(String)
+        /// Запись для систем аналитики
         case analytic(Analytic)
+        /// Любая ошибка
         case error(Error)
-        case success(String)
+        /// Справочкная информация
         case info(String)
+        /// Информация для дебага
         case debug(String)
-        case call(function: String, info: String)
+        /// Крошки
+        case breadCrumb(String)
     }
     
     public struct Log {
         public let event: Event
+        public let scope: String
+        public let params: AditionalParams
         public let file: String
         public let function: String
         public let line: UInt
-        public let scope: String
-        public let tag: String
+        public var callInfo: String { "\(function) [\(file) \(line)]" }
         
-        public init(event: Event, file: String = #file, function: String = #function, line: UInt = #line, scope: String = "", tag: String = "") {
+        public init(event: Event, scope: String, params: AditionalParams, file: String = #file, function: String = #function, line: UInt = #line) {
             self.event = event
+            self.scope = scope
+            self.params = params
             self.file = file
             self.function = function
             self.line = line
-            self.scope = scope
-            self.tag = tag
         }
     }
     
@@ -73,50 +84,37 @@ public class Logger {
         self.name = name
     }
     
-    public func unexpected(_ message: String, file: String = #file, function: String = #function, line: UInt = #line, scope: String = "" , tag: String = "") {
-        log(.unexpected(message), file: file, function: function, line: line, scope: scope, tag: tag)
-    }
-    
-    public func analytic(_ analytic: Analytic, file: String = #file, function: String = #function, line: UInt = #line, scope: String = "" , tag: String = "") {
-        log(.analytic(analytic), file: file, function: function, line: line, scope: scope, tag: tag)
-    }
-    
-    public func error(_ error: Error, file: String = #file, function: String = #function, line: UInt = #line, scope: String = "" , tag: String = "") {
-        log(.error(error), file: file, function: function, line: line, scope: scope, tag: tag)
-    }
-    
-    public func debug(_ message: String, file: String = #file, function: String = #function, line: UInt = #line, scope: String = "" , tag: String = "") {
-        log(.debug(message), file: file, function: function, line: line, scope: scope, tag: tag)
-    }
-    
-    public func log(_ event: Event, file: String = #file, function: String = #function, line: UInt = #line, scope: String = "" , tag: String = "") {
-        let log = Log(event: event, file: file, function: function, line: line, scope: scope, tag: tag)
+    public func log(_ event: Event, scope: String, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
+        var params = params
+        if case let .analytic(data) = event, params.isEmpty {
+            params = data.params
+        }
+        let log = Log(event: event, scope: scope, params: params, file: file, function: function, line: line)
         self.log(log)
     }
     
-    public func unexpected(_ message: String, file: String = #file, function: String = #function, line: UInt = #line, scope: Scope , tag: String = "") {
-        log(.unexpected(message), file: file, function: function, line: line, scope: scope.name, tag: tag)
+    public func unexpected(_ message: String, scope: String, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
+        log(.unexpected(message), scope: scope, params: params, file: file, function: function, line: line)
     }
     
-    public func analytic(_ analytic: Analytic, file: String = #file, function: String = #function, line: UInt = #line, scope: Scope , tag: String = "") {
-        log(.analytic(analytic), file: file, function: function, line: line, scope: scope.name, tag: tag)
+    public func analytic(_ analytic: Analytic, scope: String, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
+        log(.analytic(analytic), scope: scope, params: params, file: file, function: function, line: line)
     }
     
-    public func error(_ error: Error, file: String = #file, function: String = #function, line: UInt = #line, scope: Scope , tag: String = "") {
-        log(.error(error), file: file, function: function, line: line, scope: scope.name, tag: tag)
+    public func error(_ error: Error, scope: String, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
+        log(.error(error), scope: scope, params: params, file: file, function: function, line: line)
     }
     
-    public func debug(_ message: String, file: String = #file, function: String = #function, line: UInt = #line, scope: Scope , tag: String = "") {
-        log(.debug(message), file: file, function: function, line: line, scope: scope.name, tag: tag)
+    public func debug(_ message: String, scope: String, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
+        log(.debug(message), scope: scope, params: params, file: file, function: function, line: line)
+    }
+ 
+    public func info(_ message: String, scope: String, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
+        log(.debug(message), scope: scope, params: params, file: file, function: function, line: line)
     }
     
-    public func log(_ event: Event, file: String = #file, function: String = #function, line: UInt = #line, scope: Scope, tag: String = "") {
-        let log = Log(event: event, file: file, function: function, line: line, scope: scope.name, tag: tag)
-        self.log(log)
-    }
-    
-    public func call(_ funcs: String, info: String, file: String = #file, function: String = #function, line: UInt = #line, scope: Scope, tag: String = "") {
-         log(.call(function: funcs, info: info), file: file, function: function, line: line, scope: scope.name, tag: tag)
+    public func breadCrumb(_ name: String, scope: String, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
+        log(.breadCrumb(name), scope: scope, params: params, file: file, function: function, line: line)
     }
     
     public func log(_ log: Log) {
@@ -126,31 +124,20 @@ public class Logger {
 
 extension Logger.Log {
     public var text: String {
-        let header: String
+        
+        func string(_ emoji: String, _ str: String) -> String {
+            "\(emoji) \(scope) \(str) \(params.descriptionString)"
+        }
         
         switch event {
-        case .analytic(let analityc): header = "ANALYTIC\n\t\t[\(analityc.name)] \(analityc)"
-        case .error(let error): header = "ERROR\n\t\t[\(error)]"
-        case .unexpected(let message): header = "UNEXPECTED\n\t\t[\(message)]"
-        case .success(let message): header = "SUCCESS\n\t\t[\(message)]"
-        case .info(let message): header = "INFO\n\t\t[\(message)]"
-        case .debug(let message): header = "DEBUG\n\t\t[\(message)]"
-        case let .call(call, info): header = "CALL[\(call)]\n\t\t\(info)"
+        case .analytic(let analityc): return string("🔍", analityc.name)
+        case .error(let error): return string("⚠️", "\(error)")
+        case .unexpected(let message): return string("⛔", message)
+        case .info(let message): return string("ℹ️", message)
+        case .debug(let message): return string("🗜️", message)
+        case .breadCrumb(let crumb): return string("👣", crumb)
         }
-        return "\(scope): \(header)"
-       
     }
 }
+ 
 
-extension Logger.Log: CustomStringConvertible {
-    public var description: String { text }
-    public var fullDescription: String {
-        """
-        \(text)
-        file: \(file)
-        function: \(function)
-        line: \(line)
-        tag: \(tag)
-        """
-    }
-}
