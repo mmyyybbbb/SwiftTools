@@ -22,6 +22,18 @@ public class Logger {
         }
     }
     
+    public struct MatomotoAnalytic {
+        public let category: String
+        public let action: String
+        public let dimension: [Int: String]
+        
+        public init(category: String, action: String, dimension: [Int: String]){
+            self.category = category
+            self.action = action
+            self.dimension = dimension
+        }
+    }
+    
     public struct Analytic {
         public let name: String
         public let params: [String: Any]
@@ -39,6 +51,7 @@ public class Logger {
     public enum Event {
         case unexpected(String)
         case analytic(Analytic)
+        case matomotoAnalytic(MatomotoAnalytic)
         case error(Error)
         case success(String)
         case info(String)
@@ -136,6 +149,7 @@ extension Logger.Log {
         case .info(let message): header = "INFO\n\t\t[\(message)]"
         case .debug(let message): header = "DEBUG\n\t\t[\(message)]"
         case let .call(call, info): header = "CALL[\(call)]\n\t\t\(info)"
+        case .matomotoAnalytic(let analityc): header = "MOTOMOTO_ANALYTIC\n\t\t[\(analityc.category)] \(analityc.action)"
         }
         return "\(scope): \(header)"
        
