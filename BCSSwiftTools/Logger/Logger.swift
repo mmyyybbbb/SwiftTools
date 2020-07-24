@@ -12,7 +12,7 @@ public protocol LoggerDelegate: class {
     func didRecieveLog(log: Logger.Log, logger: Logger)
 }
 
-public class Logger {
+open class Logger {
      
     public struct Scope {
         public let name: String
