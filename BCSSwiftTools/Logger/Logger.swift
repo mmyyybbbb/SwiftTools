@@ -14,7 +14,7 @@ public protocol LoggerDelegate: class {
 
 public final class Logger {
      
-    public struct Scope {
+    public struct Scope: Equatable {
         public let name: String
         
         public init(_ name: String) {
