@@ -126,7 +126,7 @@ extension Logger.Log {
     public var text: String {
         
         func string(_ emoji: String, _ str: String) -> String {
-            "\(emoji) \(scope) \(str) \(params.descriptionString)"
+            "\(emoji) [\(scope.name)] \(str) \(params.descriptionString)"
         }
         
         switch event {
