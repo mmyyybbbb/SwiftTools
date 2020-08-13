@@ -61,6 +61,8 @@
 		4F5D18C3246E97E4004AA1FA /* BCSSwiftToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D18C2246E97E4004AA1FA /* BCSSwiftToolsTests.swift */; };
 		4F5D18C5246E97E4004AA1FA /* BCSSwiftTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B2952222D624A9003D8D6D /* BCSSwiftTools.framework */; };
 		4F5D18CE246EA9CE004AA1FA /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D18CD246EA9CE004AA1FA /* UIImage+.swift */; };
+		4FA0294224C4FE180044FCA4 /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0294124C4FE180044FCA4 /* Data+.swift */; };
+		4FA0294424C4FE420044FCA4 /* Dictionary+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0294324C4FE420044FCA4 /* Dictionary+.swift */; };
 		4FFBDE9F2484FAB000820802 /* String+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFBDE9E2484FAB000820802 /* String+Subscript.swift */; };
 		CB5FEA3923F594A50062F3A6 /* EnumPersist.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5FEA3823F594A50062F3A6 /* EnumPersist.swift */; };
 /* End PBXBuildFile section */
@@ -134,6 +136,8 @@
 		4F5D18C2246E97E4004AA1FA /* BCSSwiftToolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCSSwiftToolsTests.swift; sourceTree = "<group>"; };
 		4F5D18C4246E97E4004AA1FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F5D18CD246EA9CE004AA1FA /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		4FA0294124C4FE180044FCA4 /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
+		4FA0294324C4FE420044FCA4 /* Dictionary+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+.swift"; sourceTree = "<group>"; };
 		4FFBDE9E2484FAB000820802 /* String+Subscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Subscript.swift"; sourceTree = "<group>"; };
 		CB5FEA3823F594A50062F3A6 /* EnumPersist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumPersist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -321,6 +325,8 @@
 				4F1D130B246B9E780086506C /* Array+.swift */,
 				4F5D18BA246E6C28004AA1FA /* UserDefaults+.swift */,
 				4F5D18CD246EA9CE004AA1FA /* UIImage+.swift */,
+				4FA0294124C4FE180044FCA4 /* Data+.swift */,
+				4FA0294324C4FE420044FCA4 /* Dictionary+.swift */,
 			);
 			path = "Swift+";
 			sourceTree = "<group>";
@@ -494,6 +500,7 @@
 				03B2954A22D63333003D8D6D /* Double+.swift in Sources */,
 				03C5E18222E5F8090097B397 /* AssociatedStore.swift in Sources */,
 				03A5737C22E1C59500B182E6 /* ImageLoader.swift in Sources */,
+				4FA0294224C4FE180044FCA4 /* Data+.swift in Sources */,
 				03B2954422D632D1003D8D6D /* String+Validation.swift in Sources */,
 				03378D8A239FA1AC0095F00D /* AppServicesManager.swift in Sources */,
 				03B2954222D632B2003D8D6D /* Validator.swift in Sources */,
@@ -510,6 +517,7 @@
 				03378D80239FA1AC0095F00D /* AppServicesManager+ExtensionTypes.swift in Sources */,
 				03B2953322D62FC5003D8D6D /* DateFormatterBuilder.swift in Sources */,
 				034F51AE22E1D5AE00AC1A0E /* String+Md5.swift in Sources */,
+				4FA0294424C4FE420044FCA4 /* Dictionary+.swift in Sources */,
 				03378D83239FA1AC0095F00D /* AppServicesManager+AppInitializing.swift in Sources */,
 				03B189512367247A004143B4 /* Logger.swift in Sources */,
 				03B2952F22D62515003D8D6D /* TextCase.swift in Sources */,
@@ -698,7 +706,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.29;
+				MARKETING_VERSION = 2.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.bcs.BCSSwiftTools;
 				PRODUCT_NAME = BCSSwiftTools;
 				SKIP_INSTALL = YES;
@@ -727,7 +735,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.29;
+				MARKETING_VERSION = 2.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.bcs.BCSSwiftTools;
 				PRODUCT_NAME = BCSSwiftTools;
 				SKIP_INSTALL = YES;
