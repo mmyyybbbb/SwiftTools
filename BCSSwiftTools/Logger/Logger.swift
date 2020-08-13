@@ -14,6 +14,7 @@ public protocol LoggerDelegate: class {
 
 public final class Logger {
      
+    /// Бизнесовая область приложения
     public struct Scope: Equatable {
         public let name: String
         
@@ -83,7 +84,7 @@ public final class Logger {
         self.name = name
     }
     
-    public func log(_ event: Event, scope: Scope, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
+    public func log(_ event: Event, scope: Scope = .empty, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
         var params = params
         if case let .analytic(data) = event, params.isEmpty {
             params = data.params
@@ -92,7 +93,7 @@ public final class Logger {
         self.log(log)
     }
     
-    public func unexpected(_ message: String, scope: Scope, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
+    public func unexpected(_ message: String, scope: Scope = .empty, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
         log(.unexpected(message), scope: scope, params: params, file: file, function: function, line: line)
     }
     
@@ -100,19 +101,19 @@ public final class Logger {
         log(.analytic(analytic), scope: scope, params: params, file: file, function: function, line: line)
     }
     
-    public func error(_ error: Error, scope: Scope, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
+    public func error(_ error: Error, scope: Scope = .empty, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
         log(.error(error), scope: scope, params: params, file: file, function: function, line: line)
     }
     
-    public func debug(_ message: String, scope: Scope, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
+    public func debug(_ message: String, scope: Scope = .empty, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
         log(.debug(message), scope: scope, params: params, file: file, function: function, line: line)
     }
  
-    public func info(_ message: String, scope: Scope, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
+    public func info(_ message: String, scope: Scope = .empty, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
         log(.debug(message), scope: scope, params: params, file: file, function: function, line: line)
     }
     
-    public func breadCrumb(_ name: String, scope: Scope, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
+    public func breadCrumb(_ name: String, scope: Scope = .empty, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
         log(.breadCrumb(name), scope: scope, params: params, file: file, function: function, line: line)
     }
     
