@@ -20,6 +20,8 @@ public final class Logger {
         public init(_ name: String) {
             self.name = name 
         }
+        
+        public static let empty = Scope(.empty)
     }
     
     public typealias AditionalParams = [String: Any]
@@ -94,7 +96,7 @@ public final class Logger {
         log(.unexpected(message), scope: scope, params: params, file: file, function: function, line: line)
     }
     
-    public func analytic(_ analytic: Analytic, scope: Scope, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
+    public func analytic(_ analytic: Analytic, scope: Scope = .empty, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
         log(.analytic(analytic), scope: scope, params: params, file: file, function: function, line: line)
     }
     
