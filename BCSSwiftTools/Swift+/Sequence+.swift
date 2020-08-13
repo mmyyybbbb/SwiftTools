@@ -29,3 +29,7 @@ public extension Sequence {
         return categories
     }
 }
+
+public extension Sequence where Iterator.Element == String {
+    var joinWithComma: String { joined(separator: ",") }
+}

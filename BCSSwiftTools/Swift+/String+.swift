@@ -7,9 +7,9 @@
 //
 
 import Foundation
-
+ 
 public extension String {
-
+    static let unknown: String = ""
     static let cyrillicCharacters = "абвгдеёжзийклмнопрстуфхцчшщьъыэюя"
     static let englishCharacters = "abcdefghijklmnopqrstuvwxyz"
  
@@ -372,3 +372,18 @@ public extension String {
         return result
     }
 }
+
+public extension CustomStringConvertible {
+    var description : String {
+        var description: String = "*** \(type(of: self)) *** "
+
+        let selfMirror = Mirror(reflecting: self)
+        for child in selfMirror.children {
+            if let propertyName = child.label {
+                description += "\(propertyName): \(child.value), "
+            }
+        }
+        return description
+    }
+}
+

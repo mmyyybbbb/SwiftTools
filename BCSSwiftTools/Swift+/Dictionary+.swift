@@ -30,3 +30,15 @@ public extension Dictionary where Key == String, Value == Any {
         return result
     }
 }
+
+ public extension Dictionary where Key == String {
+    var debugInfo: String {
+        var str: String = ""
+        
+        for (k,v) in self {
+            str += "\(k) : \(v)\n"
+        }
+        
+        return str
+    }
+}
