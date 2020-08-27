@@ -14,6 +14,7 @@ public extension Date {
     enum Formats: String {
         case HHmm           = "HH:mm"
         case HHmmss         = "HH:mm:ss"
+        case HHmmddMMyyyy   = "HH:mm dd.MM.yy"
         
         case ddMM           = "dd.MM"
         case ddMMyy         = "dd.MM.yy"
