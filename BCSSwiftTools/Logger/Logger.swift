@@ -30,14 +30,16 @@ public final class Logger {
     public struct Analytic {
         public let name: String
         public let params: AditionalParams
+        public let tags: [Tag]
         public let source: String?
         public let description: String?
         
-        public init(name: String, params: AditionalParams, source: String?, description: String?) {
+        public init(name: String, params: AditionalParams, tags: [Tag] = [], source: String?, description: String?) {
             self.name = name
             self.params = params
             self.source = source
             self.description = description
+            self.tags = tags
         }
     }
     
@@ -56,6 +58,10 @@ public final class Logger {
         case breadCrumb(String)
     }
     
+    public enum Tag {
+        case online
+    }
+    
     public struct Log {
         public let event: Event
         public let scope: Scope
@@ -71,7 +77,7 @@ public final class Logger {
             self.params = params
             self.file = file
             self.function = function
-            self.line = line
+            self.line = line 
         }
     }
     
