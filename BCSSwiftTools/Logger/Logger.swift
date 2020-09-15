@@ -116,7 +116,7 @@ public final class Logger {
     }
  
     public func info(_ message: String, scope: Scope = .empty, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
-        log(.debug(message), scope: scope, params: params, file: file, function: function, line: line)
+        log(.info(message), scope: scope, params: params, file: file, function: function, line: line)
     }
     
     public func breadCrumb(_ name: String, scope: Scope = .empty, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
