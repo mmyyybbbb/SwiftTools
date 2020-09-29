@@ -67,6 +67,7 @@
 		4FA0294424C4FE420044FCA4 /* Dictionary+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0294324C4FE420044FCA4 /* Dictionary+.swift */; };
 		4FFBDE9F2484FAB000820802 /* String+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFBDE9E2484FAB000820802 /* String+Subscript.swift */; };
 		CB5FEA3923F594A50062F3A6 /* EnumPersist.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5FEA3823F594A50062F3A6 /* EnumPersist.swift */; };
+		E741D0EA252333C20071C45F /* NSAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741D0E9252333C10071C45F /* NSAttributedString+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 		4FA0294324C4FE420044FCA4 /* Dictionary+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+.swift"; sourceTree = "<group>"; };
 		4FFBDE9E2484FAB000820802 /* String+Subscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Subscript.swift"; sourceTree = "<group>"; };
 		CB5FEA3823F594A50062F3A6 /* EnumPersist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumPersist.swift; sourceTree = "<group>"; };
+		E741D0E9252333C10071C45F /* NSAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +335,7 @@
 				4FA0294324C4FE420044FCA4 /* Dictionary+.swift */,
 				4F438BB124E4CF1C00458C37 /* Int+.swift */,
 				4F438BB324E4CF7600458C37 /* UIColor+.swift */,
+				E741D0E9252333C10071C45F /* NSAttributedString+.swift */,
 			);
 			path = "Swift+";
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				4F438BB224E4CF1C00458C37 /* Int+.swift in Sources */,
 				03378D7E239FA1AC0095F00D /* AppServicesManager+WatchKitInteracting.swift in Sources */,
 				03B2954822D632FA003D8D6D /* String+HTML.swift in Sources */,
+				E741D0EA252333C20071C45F /* NSAttributedString+.swift in Sources */,
 				03B2954C22D6335A003D8D6D /* NumberFormatter.swift in Sources */,
 				037AB57E238D34C30041EB43 /* KeychainWrapper.swift in Sources */,
 				03378D80239FA1AC0095F00D /* AppServicesManager+ExtensionTypes.swift in Sources */,
