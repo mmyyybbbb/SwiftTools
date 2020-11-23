@@ -26,20 +26,23 @@ public final class Logger {
     }
     
     public typealias AditionalParams = [String: Any]
-  
+    public typealias DimensionParams = [Int: Any]
+    
     public struct Analytic {
         public let name: String
         public let params: AditionalParams
         public let tags: [Tag]
         public let source: String?
         public let description: String?
+        public let dimensions: DimensionParams?
         
-        public init(name: String, params: AditionalParams, tags: [Tag] = [], source: String?, description: String?) {
+        public init(name: String, params: AditionalParams, tags: [Tag] = [], source: String?, description: String?, dimensions: DimensionParams? = nil) {
             self.name = name
             self.params = params
             self.source = source
             self.description = description
             self.tags = tags
+            self.dimensions = dimensions
         }
     }
     
