@@ -42,7 +42,6 @@ public final class KeyChainService {
         return nil
     }
     
-    #if DEBUG
     @discardableResult
     public class func remove(forKey: String) -> Bool {
         let query: [String : Any] = [
@@ -56,6 +55,4 @@ public final class KeyChainService {
         }
         return false
     }
-    #endif
-    
 }
