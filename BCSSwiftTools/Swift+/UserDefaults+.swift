@@ -6,8 +6,6 @@
 //  Copyright © 2020 alexeyne. All rights reserved.
 //
 
-import Foundation
-
 public extension UserDefaults {
 
     /// SwifterSwift: get object from UserDefaults by using subscript

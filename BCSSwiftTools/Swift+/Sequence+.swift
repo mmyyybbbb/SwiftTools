@@ -6,8 +6,6 @@
 //  Copyright © 2019 alexeyne. All rights reserved.
 //
 
-import Foundation
-
 public extension Sequence {
     func groupSort(ascending: Bool = true, byDate dateKey: (Iterator.Element) -> Date) -> [[Iterator.Element]] {
         var categories: [[Iterator.Element]] = []

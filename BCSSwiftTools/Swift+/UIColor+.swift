@@ -5,8 +5,6 @@
 //  Created by Alexey Nenastev on 13.08.2020.
 //  Copyright © 2020 alexeyne. All rights reserved.
 //
-
-import UIKit
  
 public extension UIColor {
     static func from(hex:String) -> UIColor {

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 public extension String {
     func toImage() -> UIImage? {

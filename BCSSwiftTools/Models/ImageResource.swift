@@ -5,10 +5,6 @@
 //  Created by alexej_ne on 29/11/2018.
 //  Copyright © 2018 BCS. All rights reserved.
 //
-
-import Foundation
-import UIKit
-
 public enum ImageResource {
     case image(UIImage)
     case url(URL)

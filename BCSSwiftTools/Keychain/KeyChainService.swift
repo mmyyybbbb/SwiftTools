@@ -6,9 +6,6 @@
 //  Copyright © 2019 BCS. All rights reserved.
 //
 
-import Foundation
-import UIKit
-
 public final class KeyChainService {
     
     @discardableResult

@@ -6,8 +6,6 @@
 //  Copyright © 2019 BCS. All rights reserved.
 //
 
-import Foundation
-
 public typealias ValidationError = String
 public typealias Password = String
 
