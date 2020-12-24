@@ -66,6 +66,7 @@
 		4FA0294224C4FE180044FCA4 /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0294124C4FE180044FCA4 /* Data+.swift */; };
 		4FA0294424C4FE420044FCA4 /* Dictionary+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0294324C4FE420044FCA4 /* Dictionary+.swift */; };
 		4FFBDE9F2484FAB000820802 /* String+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFBDE9E2484FAB000820802 /* String+Subscript.swift */; };
+		CB2154462594DEF600464B36 /* Import+Exported.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2154452594DEF600464B36 /* Import+Exported.swift */; };
 		CB5FEA3923F594A50062F3A6 /* EnumPersist.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5FEA3823F594A50062F3A6 /* EnumPersist.swift */; };
 		E741D0EA252333C20071C45F /* NSAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E741D0E9252333C10071C45F /* NSAttributedString+.swift */; };
 /* End PBXBuildFile section */
@@ -144,6 +145,8 @@
 		4FA0294124C4FE180044FCA4 /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		4FA0294324C4FE420044FCA4 /* Dictionary+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+.swift"; sourceTree = "<group>"; };
 		4FFBDE9E2484FAB000820802 /* String+Subscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Subscript.swift"; sourceTree = "<group>"; };
+		CB2152022594CCB800464B36 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		CB2154452594DEF600464B36 /* Import+Exported.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Import+Exported.swift"; sourceTree = "<group>"; };
 		CB5FEA3823F594A50062F3A6 /* EnumPersist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumPersist.swift; sourceTree = "<group>"; };
 		E741D0E9252333C10071C45F /* NSAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -267,6 +270,7 @@
 		03B2951822D624A9003D8D6D = {
 			isa = PBXGroup;
 			children = (
+				CB2152022594CCB800464B36 /* Package.swift */,
 				034F51BB22E1DC6D00AC1A0E /* BCSSwiftTools.podspec */,
 				03B2952422D624A9003D8D6D /* BCSSwiftTools */,
 				4F5D18C1246E97E4004AA1FA /* BCSSwiftToolsTests */,
@@ -305,6 +309,7 @@
 				03B2952522D624A9003D8D6D /* BCSSwiftTools.h */,
 				03B2952622D624A9003D8D6D /* Info.plist */,
 				03C5E18122E5F8090097B397 /* AssociatedStore.swift */,
+				CB2154452594DEF600464B36 /* Import+Exported.swift */,
 			);
 			path = BCSSwiftTools;
 			sourceTree = "<group>";
@@ -501,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03378D84239FA1AC0095F00D /* AppServicesManager+InterfaceOrientations.swift in Sources */,
+				CB2154462594DEF600464B36 /* Import+Exported.swift in Sources */,
 				03B2953522D62FEA003D8D6D /* TimeZone+.swift in Sources */,
 				4FFBDE9F2484FAB000820802 /* String+Subscript.swift in Sources */,
 				4F5D18BB246E6C28004AA1FA /* UserDefaults+.swift in Sources */,
@@ -718,7 +724,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.14;
+				MARKETING_VERSION = 2.1.16;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.bcs.BCSSwiftTools;
 				PRODUCT_NAME = BCSSwiftTools;
 				SKIP_INSTALL = YES;
@@ -747,7 +753,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.14;
+				MARKETING_VERSION = 2.1.16;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.bcs.BCSSwiftTools;
 				PRODUCT_NAME = BCSSwiftTools;
 				SKIP_INSTALL = YES;
