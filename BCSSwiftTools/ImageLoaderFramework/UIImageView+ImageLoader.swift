@@ -6,6 +6,7 @@
 //  Copyright © 2018 BCS. All rights reserved.
 //
 
+import UIKit
 
 extension UIImageView: AssociatedStore {
     

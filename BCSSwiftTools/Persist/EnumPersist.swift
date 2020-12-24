@@ -6,6 +6,8 @@
 //  Copyright © 2020 alexeyne. All rights reserved.
 //
 
+import Foundation
+
 @propertyWrapper
 public struct EnumPersist<T: RawRepresentable> {
     public let key: String

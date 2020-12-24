@@ -6,6 +6,9 @@
 //  Copyright © 2019 alexeyne. All rights reserved.
 //
 
+import Foundation
+import UIKit
+
 public extension UIDevice {
     var version: String {
         guard let dictionary = Bundle.main.infoDictionary,

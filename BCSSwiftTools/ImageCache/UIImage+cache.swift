@@ -6,6 +6,8 @@
 //  Copyright © 2019 alexeyne. All rights reserved.
 //
 
+import Foundation
+import UIKit
 
 public typealias ImageCacheLoadCompletion = ([String: UIImage]) -> Void
 

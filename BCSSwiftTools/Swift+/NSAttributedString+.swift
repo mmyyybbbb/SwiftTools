@@ -5,6 +5,8 @@
 //  Created by aryzhov on 29.09.2020.
 //  Copyright © 2020 alexeyne. All rights reserved.
 //
+import Foundation
+import CoreGraphics
 
 public extension NSAttributedString {
     func height(withConstrainedWidth width: CGFloat) -> CGFloat {

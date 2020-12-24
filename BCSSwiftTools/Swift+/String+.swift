@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import CoreGraphics
  
 public extension String {
     static let unknown: String = ""

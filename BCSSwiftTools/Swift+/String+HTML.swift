@@ -5,6 +5,9 @@
 //  Created by Ponomarev Vasiliy on 28/03/2019.
 //  Copyright © 2019 BCS. All rights reserved.
 //
+
+import Foundation
+
 public extension String {
 
     /**

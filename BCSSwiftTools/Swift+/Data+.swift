@@ -6,6 +6,7 @@
 //  Copyright © 2020 alexeyne. All rights reserved.
 //
 
+import Foundation
  
 public extension Data {
     var prettyPrintedJSONString: NSString? { /// NSString gives us a nice sanitized debugDescription

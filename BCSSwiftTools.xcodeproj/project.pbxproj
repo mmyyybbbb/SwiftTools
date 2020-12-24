@@ -144,6 +144,7 @@
 		4FA0294124C4FE180044FCA4 /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		4FA0294324C4FE420044FCA4 /* Dictionary+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+.swift"; sourceTree = "<group>"; };
 		4FFBDE9E2484FAB000820802 /* String+Subscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Subscript.swift"; sourceTree = "<group>"; };
+		CB2152022594CCB800464B36 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		CB5FEA3823F594A50062F3A6 /* EnumPersist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumPersist.swift; sourceTree = "<group>"; };
 		E741D0E9252333C10071C45F /* NSAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -267,6 +268,7 @@
 		03B2951822D624A9003D8D6D = {
 			isa = PBXGroup;
 			children = (
+				CB2152022594CCB800464B36 /* Package.swift */,
 				034F51BB22E1DC6D00AC1A0E /* BCSSwiftTools.podspec */,
 				03B2952422D624A9003D8D6D /* BCSSwiftTools */,
 				4F5D18C1246E97E4004AA1FA /* BCSSwiftToolsTests */,
@@ -718,7 +720,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.14;
+				MARKETING_VERSION = 2.1.15;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.bcs.BCSSwiftTools;
 				PRODUCT_NAME = BCSSwiftTools;
 				SKIP_INSTALL = YES;
@@ -747,7 +749,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.14;
+				MARKETING_VERSION = 2.1.15;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.bcs.BCSSwiftTools;
 				PRODUCT_NAME = BCSSwiftTools;
 				SKIP_INSTALL = YES;

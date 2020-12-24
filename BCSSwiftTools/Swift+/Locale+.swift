@@ -6,6 +6,8 @@
 //  Copyright © 2019 BCS. All rights reserved.
 //
 
+import Foundation
+
 extension Locale {
     public static var `default`: Locale {
         return Locale(identifier: "en_US_POSIX")

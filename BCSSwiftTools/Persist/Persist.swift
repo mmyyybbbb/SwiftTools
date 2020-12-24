@@ -5,6 +5,8 @@
 //  Created by alexej_ne on 19.11.2019.
 //
 
+import Foundation
+
 @propertyWrapper
 public struct Persist<T> {
     public let key: String

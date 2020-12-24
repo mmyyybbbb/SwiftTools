@@ -5,6 +5,9 @@
 //  Created by alexej_ne on 22.07.2019.
 //  Copyright © 2019 alexeyne. All rights reserved.
 //
+
+import Foundation
+
 protocol AssociatedStore { }
 
 extension AssociatedStore {
