@@ -42,6 +42,7 @@ public extension Date {
         case ddMMMMyyyyInHHMM   = "dd.MM.YYYY в HH:mm"
         
         case MMMMyyyy           = "MMMM yyyy"
+        case mm_dd_yyyy         = "mm-dd-yyyy"
         
         case dd                 = "dd"
         case MMM                = "MMM"

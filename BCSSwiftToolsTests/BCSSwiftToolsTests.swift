@@ -32,4 +32,13 @@ class BCSSwiftToolsTests: XCTestCase {
         
         XCTAssert(restoredRes != nil)
     }
+    
+    func testDateFormatter() {
+        let testValue = "01-22-2020"
+        let testFormat = Date.Formats.mm_dd_yyyy
+        let date = testValue.date(format: testFormat)
+        XCTAssert(date != nil)
+        let string = date?.string(.ddMMyyyy)
+        XCTAssert(string == "22.01.2020")
+    }
 }

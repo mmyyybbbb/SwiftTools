@@ -724,7 +724,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.16;
+				MARKETING_VERSION = 2.1.17;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.bcs.BCSSwiftTools;
 				PRODUCT_NAME = BCSSwiftTools;
 				SKIP_INSTALL = YES;
@@ -753,7 +753,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.16;
+				MARKETING_VERSION = 2.1.17;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.bcs.BCSSwiftTools;
 				PRODUCT_NAME = BCSSwiftTools;
 				SKIP_INSTALL = YES;
