@@ -34,11 +34,24 @@ class BCSSwiftToolsTests: XCTestCase {
     }
     
     func testDateFormatter() {
-        let testValue = "01-22-2020"
-        let testFormat = Date.Formats.mm_dd_yyyy
-        let date = testValue.date(format: testFormat)
+        let dateValue = "01/22/2020 23:23:23"
+        let date = dateValue.date(format: .MMddyyyyHHmmss)
         XCTAssert(date != nil)
-        let string = date?.string(.ddMMyyyy)
-        XCTAssert(string == "22.01.2020")
+
+        let testFormat = Date.Formats.MM_dd_yyyy
+        let testValue = date?.string(testFormat)
+        XCTAssert(testValue == "01-22-2020")
+
+        let testDate = testValue?.date(format: testFormat)
+        XCTAssert(testDate != nil)
+
+        let day = testDate?.string(.dd)
+        XCTAssert(day == "22")
+
+        let month = testDate?.string(.MMMM)
+        XCTAssert(month?.lowercased().hasPrefix("янв") ?? false)
+
+        let year = testDate?.string(.yyyy)
+        XCTAssert(year == "2020")
     }
 }
