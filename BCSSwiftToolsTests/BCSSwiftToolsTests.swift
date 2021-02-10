@@ -38,7 +38,7 @@ class BCSSwiftToolsTests: XCTestCase {
         let date = dateValue.date(format: .MMddyyyyHHmmss)
         XCTAssert(date != nil)
 
-        let testFormat = Date.Formats.MM_dd_yyyy
+        let testFormat = Date.Formats.mm_dd_yyyy
         let testValue = date?.string(testFormat)
         XCTAssert(testValue == "01-22-2020")
 
