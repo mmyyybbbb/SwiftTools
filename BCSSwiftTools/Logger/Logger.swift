@@ -44,7 +44,7 @@ public final class Logger {
         public let description: String?
         public let dimensions: DimensionParams?
         
-        public init(name: String, params: AditionalParams, tags: [Tag] = [], source: String?, description: String?, dimensions: DimensionParams? = nil) {
+        public init(name: String, params: AditionalParams,  tags: [Tag] = [], source: String?, description: String?, dimensions: DimensionParams? = nil) {
             self.name = name
             self.params = params
             self.source = source
@@ -96,41 +96,49 @@ public final class Logger {
     
     public static let shared = Logger(name: "Shared")
     public let name: String
+    public let defaultScope: Scope
     
+    @available(*, deprecated, message: "Используйте init(defaultScope:)")
     public init(name: String) {
         self.name = name
+        self.defaultScope = .empty
     }
     
-    public func log(_ event: Event, scope: Scope = .empty, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
+    public init(defaultScope: Scope) {
+        self.defaultScope = defaultScope
+        self.name = defaultScope.name
+    }
+    
+    public func log(_ event: Event, scope: Scope? = nil, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
         var params = params
         if case let .analytic(data) = event, params.isEmpty {
             params = data.params
         }
-        let log = Log(event: event, scope: scope, params: params, file: file, function: function, line: line)
+        let log = Log(event: event, scope: scope ?? defaultScope, params: params, file: file, function: function, line: line)
         self.log(log)
     }
     
-    public func unexpected(_ message: String, scope: Scope = .empty, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
+    public func unexpected(_ message: String, scope: Scope? = nil, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
         log(.unexpected(message), scope: scope, params: params, file: file, function: function, line: line)
     }
     
-    public func analytic(_ analytic: Analytic, scope: Scope = .empty, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
+    public func analytic(_ analytic: Analytic, scope: Scope? = nil, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
         log(.analytic(analytic), scope: scope, params: params, file: file, function: function, line: line)
     }
     
-    public func error(_ error: Error, scope: Scope = .empty, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
+    public func error(_ error: Error, scope: Scope? = nil, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
         log(.error(error), scope: scope, params: params, file: file, function: function, line: line)
     }
     
-    public func debug(_ message: String, scope: Scope = .empty, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
+    public func debug(_ message: String, scope: Scope? = nil, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
         log(.debug(message), scope: scope, params: params, file: file, function: function, line: line)
     }
  
-    public func info(_ message: String, scope: Scope = .empty, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
+    public func info(_ message: String, scope: Scope? = nil, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
         log(.info(message), scope: scope, params: params, file: file, function: function, line: line)
     }
     
-    public func breadCrumb(_ name: String, scope: Scope = .empty, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
+    public func breadCrumb(_ name: String, scope: Scope? = nil, params: AditionalParams = [:], file: String = #file, function: String = #function, line: UInt = #line) {
         log(.breadCrumb(name), scope: scope, params: params, file: file, function: function, line: line)
     }
     
