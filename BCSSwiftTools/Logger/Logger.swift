@@ -17,12 +17,20 @@ public final class Logger {
     /// Бизнесовая область приложения
     public struct Scope: Equatable {
         public let name: String
+        /// Владелец скоупа
+        public let owner: String
         
+        @available(*, deprecated, message: "Используйте init(:,owner:)")
         public init(_ name: String) {
-            self.name = name 
+            self.name = name
+            self.owner = .empty
         }
         
-        public static let empty = Scope(.empty)
+        public init(_ name: String, owner: String) {
+            self.name = name
+            self.owner = owner
+        }
+        public static let empty = Scope(.empty, owner: .empty)
     }
     
     public typealias AditionalParams = [String: Any]
@@ -135,7 +143,7 @@ extension Logger.Log {
     public var text: String {
         
         func string(_ emoji: String, _ str: String) -> String {
-            "\(emoji) [\(scope.name)] \(str) \(params.descriptionString)"
+            "\(emoji) [\(scope.owner):\(scope.name)] \(str) \(params.descriptionString)"
         }
         
         switch event {
