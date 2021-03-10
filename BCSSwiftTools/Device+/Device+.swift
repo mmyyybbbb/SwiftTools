@@ -6,6 +6,8 @@
 //  Copyright © 2019 alexeyne. All rights reserved.
 //
 
+import LocalAuthentication
+
 public extension UIDevice {
     var version: String {
         guard let dictionary = Bundle.main.infoDictionary,
@@ -72,6 +74,10 @@ public extension UIDevice {
             case "iPhone12,3":                              return "iPhone 11 Pro"
             case "iPhone12,5":                              return "iPhone 11 Pro Max"
             case "iPhone12,8":                              return "iPhone SE (2nd generation)"
+            case "iPhone13,1":                              return "iPhone 12 mini"
+            case "iPhone13,2":                              return "iPhone 12"
+            case "iPhone13,3":                              return "iPhone 12 Pro"
+            case "iPhone13,4":                              return "iPhone 12 Pro Max"
             case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4":return "iPad 2"
             case "iPad3,1", "iPad3,2", "iPad3,3":           return "iPad (3rd generation)"
             case "iPad3,4", "iPad3,5", "iPad3,6":           return "iPad (4th generation)"
@@ -81,12 +87,14 @@ public extension UIDevice {
             case "iPad4,1", "iPad4,2", "iPad4,3":           return "iPad Air"
             case "iPad5,3", "iPad5,4":                      return "iPad Air 2"
             case "iPad11,4", "iPad11,5":                    return "iPad Air (3rd generation)"
+            case "iPad13,2":                                return "iPad Air (4th generation)"
             case "iPad2,5", "iPad2,6", "iPad2,7":           return "iPad mini"
             case "iPad4,4", "iPad4,5", "iPad4,6":           return "iPad mini 2"
             case "iPad4,7", "iPad4,8", "iPad4,9":           return "iPad mini 3"
             case "iPad5,1", "iPad5,2":                      return "iPad mini 4"
             case "iPad11,1", "iPad11,2":                    return "iPad mini (5th generation)"
             case "iPad6,3", "iPad6,4":                      return "iPad Pro (9.7-inch)"
+            case "iPad11,7":                                return "iPad Pro (10.2-inch 8th generation)"
             case "iPad7,3", "iPad7,4":                      return "iPad Pro (10.5-inch)"
             case "iPad8,1", "iPad8,2", "iPad8,3", "iPad8,4":return "iPad Pro (11-inch) (1st generation)"
             case "iPad8,9", "iPad8,10":                     return "iPad Pro (11-inch) (2nd generation)"
@@ -113,4 +121,125 @@ public extension UIDevice {
         return mapToDevice(identifier: identifier)
     }()
     
+}
+
+public extension UIDevice {
+    
+    enum Model {
+        case iPhoneSE
+        case iPhone8
+        case iPhone8plus
+        case iPhone11
+        case iPhone11Pro
+        case iPhone11ProMax
+        case iPhone12mini
+        case iPhone12 // also iPhone12Pro
+        case iPhone12ProMax
+
+        case iPadMiniLegacy
+        case iPad9_7 // also iPadMini
+        case iPad10_2
+        case iPad10_5
+        case iPad11
+        case iPad12_9
+        
+        case tv
+        case carPlay
+        
+        case unknown
+    }
+    
+    static var iPhone5: Bool { model == .iPhoneSE }
+    static var iPhoneX: Bool { [.iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhone12mini, .iPhone12, .iPhone12ProMax].contains(model) }
+    
+    static var iPad: Bool { [.iPadMiniLegacy, .iPad9_7, .iPad10_2, .iPad10_5, .iPad11, .iPad12_9].contains(model) }
+    static var iPadX: Bool { [.iPad11, .iPad12_9].contains(model) }
+
+    static var isTouchIDAvailable: Bool {
+        if let kind = LAContext().biometricKind, kind == .touchID {
+            return true
+        }
+        
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:        return !iPhoneX
+        case .pad:          return !iPadX
+        default:   return false
+        }
+    }
+    
+    static var isFaceIDAvailable: Bool {
+        if let kind = LAContext().biometricKind, kind == .faceID {
+            return true
+        }
+        
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:        return iPhoneX
+        case .pad:          return iPadX
+        default:   return false
+        }
+    }
+    
+    static var model: Model {
+        
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            switch UIScreen.main.nativeBounds.height {
+            case 1136:          return .iPhoneSE
+            case 1334:          return .iPhone8
+            case 1920, 2208:    return .iPhone8plus
+            case 1792:          return .iPhone11
+            case 2436:          return .iPhone11Pro
+            case 2688:          return .iPhone11ProMax
+            case 2340:          return .iPhone12mini
+            case 2532:          return .iPhone12
+            case 2778:          return .iPhone12ProMax
+            default:            return .unknown
+            }
+        case .pad:
+            // https://stackoverflow.com/questions/46192280/detect-if-the-device-is-iphone-x/47067296
+            if #available(iOS 11.0, *), UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0 > 0 {
+                switch UIScreen.main.nativeBounds.height {
+                case 2388:          return .iPad11
+                case 2732:          return .iPad12_9
+                default:            return .unknown
+                }
+            } else {
+                switch UIScreen.main.nativeBounds.height {
+                case 1024:          return .iPadMiniLegacy
+                case 2048:          return .iPad9_7
+                case 2160:          return .iPad10_2
+                case 2224:          return .iPad10_5
+                default:            return .unknown
+                }
+            }
+        case .tv: return .tv
+        case .carPlay: return .carPlay
+        case .unspecified: return .unknown
+        default: return .unknown
+        }
+    }
+}
+
+extension LAContext {
+    enum BiometricKind: String {
+        case touchID
+        case faceID
+    }
+
+    var biometricKind: BiometricKind? {
+        guard #available(iOS 11.0, *) else { return nil }
+
+        var error: NSError?
+        // если заблочили FaceId то будет ошибка, поэтому выше проверка по моделе
+        guard self.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else { return nil }
+
+        switch biometryType {
+        case .none:     return nil
+        case .touchID:  return .touchID
+        case .faceID:   return .faceID
+        @unknown default:
+            #warning("Handle new Biometric type")
+            return nil
+        }
+    }
 }
