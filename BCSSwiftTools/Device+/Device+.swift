@@ -196,21 +196,14 @@ public extension UIDevice {
             default:            return .unknown
             }
         case .pad:
-            // https://stackoverflow.com/questions/46192280/detect-if-the-device-is-iphone-x/47067296
-            if #available(iOS 11.0, *), UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0 > 0 {
-                switch UIScreen.main.nativeBounds.height {
-                case 2388:          return .iPad11
-                case 2732:          return .iPad12_9
-                default:            return .unknown
-                }
-            } else {
-                switch UIScreen.main.nativeBounds.height {
-                case 1024:          return .iPadMiniLegacy
-                case 2048:          return .iPad9_7
-                case 2160:          return .iPad10_2
-                case 2224:          return .iPad10_5
-                default:            return .unknown
-                }
+            switch UIScreen.main.nativeBounds.height {
+            case 1024:          return .iPadMiniLegacy
+            case 2048:          return .iPad9_7
+            case 2160:          return .iPad10_2
+            case 2224:          return .iPad10_5
+            case 2388:          return .iPad11
+            case 2732:          return .iPad12_9
+            default:            return .unknown
             }
         case .tv: return .tv
         case .carPlay: return .carPlay
