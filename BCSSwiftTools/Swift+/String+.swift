@@ -52,6 +52,7 @@ public extension String {
         case creditCard = "**** **** **** ****"
         case issueDate = "**/**"
         case cvc = "***"
+        case code4symbols = "****"
         case code5symbols = "*****"
         case code6symbols = "******"
 
