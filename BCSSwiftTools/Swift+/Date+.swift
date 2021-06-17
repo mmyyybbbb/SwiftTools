@@ -49,6 +49,7 @@ public extension Date {
         case MMMM               = "MMMM"
         case yyyy               = "yyyy"
         case LLLL               = "LLLL"
+        case LLL                = "LLL"
         
         case yyyyMMdd           = "yyyyMMdd"
         case yyyy_MM_dd         = "yyyy-MM-dd"
