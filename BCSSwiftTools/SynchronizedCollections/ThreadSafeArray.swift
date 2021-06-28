@@ -9,6 +9,7 @@
 import Foundation
 
 /// A thread-safe array.
+@available(*, deprecated, message: "Refactoring needed, unsafe threading")
 public class ThreadSafeArray<Element> {
     private let queue = DispatchQueue(label: "swifttools.ThreadSafeArray", attributes: .concurrent)
     private var array = [Element]()
@@ -97,7 +98,6 @@ public extension ThreadSafeArray {
     ///
     /// - Parameter predicate: A closure that takes an element as its argument and returns a Boolean value that indicates whether the passed element represents a match.
     /// - Returns: The index of the first element for which predicate returns true. If no elements in the collection satisfy the given predicate, returns nil.
-    @available(*, deprecated, message: "Refactoring needed")
     func index(where predicate: (Element) -> Bool) -> Int? {
         var result: Int?
         queue.sync { result = self.array.index(where: predicate) }
@@ -235,7 +235,6 @@ public extension ThreadSafeArray {
     /// - Parameters:
     ///   - predicate: A closure that takes an element of the sequence as its argument and returns a Boolean value indicating whether the element is a match.
     ///   - completion: The handler with the removed elements.
-    @available(*, deprecated, message: "Refactoring needed")
     func remove(where predicate: @escaping (Element) -> Bool, completion: (([Element]) -> Void)? = nil) {
         queue.async(flags: .barrier) {
             var elements = [Element]()
