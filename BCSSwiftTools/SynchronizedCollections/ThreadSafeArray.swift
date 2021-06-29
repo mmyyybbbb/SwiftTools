@@ -9,6 +9,7 @@
 import Foundation
 
 /// A thread-safe array.
+@available(*, deprecated, message: "Refactoring needed, unsafe threading")
 public class ThreadSafeArray<Element> {
     private let queue = DispatchQueue(label: "swifttools.ThreadSafeArray", attributes: .concurrent)
     private var array = [Element]()

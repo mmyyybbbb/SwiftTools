@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol LoggerDelegate: class {
+public protocol LoggerDelegate: AnyObject {
     func didRecieveLog(log: Logger.Log, logger: Logger)
 }
 
@@ -94,7 +94,7 @@ public final class Logger {
     
     public weak var delegate: LoggerDelegate?
     
-    public static let shared = Logger(name: "Shared")
+    public static let shared = Logger(defaultScope: .init("Shared", owner: "Shared"))
     public let name: String
     public let defaultScope: Scope
     

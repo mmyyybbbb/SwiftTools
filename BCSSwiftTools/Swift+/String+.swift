@@ -43,18 +43,36 @@ public extension String {
      Набор возможных форматов строки (например, номер телефона, инн и т.п.).
      */
     enum Format: String {
-        case phone = "+7 (***) ***-**-**"
-        case inn = "************"
-        case snils = "***-***-*** **"
-        case subdivision = "***-***"
-        case date = "**.**.****"
-        case passportSeriesNumber = "**** ******"
-        case creditCard = "**** **** **** ****"
-        case issueDate = "**/**"
-        case cvc = "***"
-        case code4symbols = "****"
-        case code5symbols = "*****"
-        case code6symbols = "******"
+        case phone
+        case cleanPhone
+        case inn
+        case snils
+        case subdivision
+        case date
+        case passportSeriesNumber
+        case creditCard
+        case issueDate
+        case cvc
+        case code4symbols
+        case code5symbols
+        case code6symbols
+        
+        public var rawValue: String {
+            switch self {
+            case .phone, .cleanPhone:   return "+7 (***) ***-**-**"
+            case .inn:                  return "************"
+            case .snils:                return "***-***-*** **"
+            case .subdivision:          return "***-***"
+            case .date:                 return "**.**.****"
+            case .passportSeriesNumber: return "**** ******"
+            case .creditCard:           return "**** **** **** ****"
+            case .issueDate:            return "**/**"
+            case .cvc:                  return "***"
+            case .code4symbols:         return "****"
+            case .code5symbols:         return "*****"
+            case .code6symbols:         return "******"
+            }
+        }
 
         public var placeholderValue: String {
             switch self {
@@ -65,7 +83,7 @@ public extension String {
 
         public func extractValue(_ str: String) -> String {
             switch self {
-            case .phone: return str.onlyNumeric
+            case .phone, .cleanPhone: return str.onlyNumeric
             default: return str
             }
         }

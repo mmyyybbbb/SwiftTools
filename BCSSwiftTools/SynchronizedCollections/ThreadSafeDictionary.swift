@@ -9,6 +9,7 @@
 import Foundation
 
 /// A thread-safe dictionary
+@available(*, deprecated, message: "Refactoring needed, unsafe threading")
 public class ThreadSafeDictionary<Key: Hashable, Value> {
     private let queue = DispatchQueue(label: "swifttools.ThreadSafeDictionary", attributes: .concurrent)
     private var dictionary = [Key: Value]()
